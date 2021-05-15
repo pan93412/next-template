@@ -6,6 +6,7 @@ import { GetAnnouncement, ListAnnouncements } from "schweb-parser/dist";
 import { AnnouncementContent } from 'schweb-parser/dist/types/announcements/types';
 import parse from "html-react-parser";
 import Link from 'next/link';
+import { AnnouncementsMeta } from '../../../common/Announcements';
 
 export interface AnnouncementPageProps {
   category: string;
@@ -35,7 +36,7 @@ export default function AnnouncementPage({ data, pid, category }: AnnouncementPa
 
   return (
     <BasePage id="announcement-page">
-      <ArticlePageComponent title={data.title} subtitle={category}>
+      <ArticlePageComponent title={data.title} subtitle={AnnouncementsMeta[category].type}>
         <div className="announcement content mb-6">
           {parse(data.contentHTML)}
         </div>

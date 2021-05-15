@@ -23,13 +23,15 @@ async function getAnnouncements(
   return json.data;
 }
 
-export interface AnnouncementsInnerFieldProps {
+export interface AnnouncementCardsProps {
   category: Announcements;
+  maxColumns: number;
+  // maxCards?: number;
 }
 
-export default function AnnouncementsInnerField({
-  category,
-}: AnnouncementsInnerFieldProps) {
+export default function AnnouncementCards({
+  category, maxColumns
+}: AnnouncementCardsProps) {
   const endp = ListAnnouncementsMeta.endpoint;
   const useMySWR = (category: string) =>
     useSWR(endp(category), getAnnouncements, {
@@ -39,7 +41,7 @@ export default function AnnouncementsInnerField({
   const data = useMySWR(category);
 
   return (
-    <div className="grid grid-flow-row grid-cols-1 gap-x-1">
+    <div className={`grid grid-flow-row grid-cols-${maxColumns} auto-cols-fr`}>
       {data.data?.map((announce) => (
         <Card
           subtitle={AnnouncementsMeta[category].type}

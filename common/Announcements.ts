@@ -6,6 +6,18 @@ export enum Announcements {
   Study = "study",
 };
 
+export function isAnnouncements(stuff: string): stuff is Announcements {
+  switch (stuff) {
+    case "school":
+    case "contest":
+    case "grade":
+    case "law":
+    case "study":
+      return true;
+    default:
+      return false;
+  }
+}
 export const AnnouncementsMeta: Record<Announcements, { type: string }> = {
   school: {
     type: "學校 SCHOOL",
