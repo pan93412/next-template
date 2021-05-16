@@ -1,10 +1,10 @@
 import React from "react";
 import { ListAnnouncementsMeta } from "schweb-parser/dist";
 import useSWR from "swr";
-import type { Announcement } from "schweb-parser/dist/types/announcements/types";
-import type { AnnouncementCategory } from "../../common/AnnouncementCategory";
 import { AnnouncementCategoryMetadata } from "../../common/AnnouncementCategory";
 import Card from "../Base/BaseCard";
+import type { Announcement } from "schweb-parser/dist/types/announcements/types";
+import type { AnnouncementCategory } from "../../common/AnnouncementCategory";
 
 async function getAnnouncementsSWR(
   input: RequestInfo,

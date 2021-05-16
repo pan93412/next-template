@@ -1,8 +1,8 @@
 import React from "react";
-import type { AnnouncementCategory } from "../../common/AnnouncementCategory";
 import { AnnouncementCategoryMetadata } from "../../common/AnnouncementCategory";
 import Card from "../Base/BaseCard";
 import Field from "./Field";
+import type { AnnouncementCategory } from "../../common/AnnouncementCategory";
 
 export default function AnnouncementsField() {
   return (

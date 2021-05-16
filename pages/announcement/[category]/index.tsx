@@ -1,11 +1,11 @@
 import React from "react";
-import type { GetServerSideProps } from "next";
-import type { AnnouncementCategory } from "../../../common/AnnouncementCategory";
 import { isValidAnnouncementCategory } from "../../../common/AnnouncementCategory";
 import AnnouncementCards from "../../../components/Announcements/Cards";
 import BasePage from "../../../components/Page/BasePage";
 import FieldsGroup from "../../../components/Field/FieldsGroup";
 import AnnouncementsField from "../../../components/Field/AnnouncementsField";
+import type { AnnouncementCategory } from "../../../common/AnnouncementCategory";
+import type { GetServerSideProps } from "next";
 
 interface Props {
   category: AnnouncementCategory;

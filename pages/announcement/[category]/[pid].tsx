@@ -1,14 +1,14 @@
 import React from "react";
 import { GetAnnouncement, ListAnnouncements } from "schweb-parser/dist";
 import parse from "html-react-parser";
-import type { AnnouncementContent } from "schweb-parser/dist/types/announcements/types";
-import type { GetServerSideProps } from "next";
 import BasePage from "../../../components/Page/BasePage";
 import { ArticlePageComponent } from "../../../components/Page/ArticlePageComponent";
-import type { AnnouncementCategory } from "../../../common/AnnouncementCategory";
 import { AnnouncementCategoryMetadata } from "../../../common/AnnouncementCategory";
 import FieldsGroup from "../../../components/Field/FieldsGroup";
 import AnnouncementCards from "../../../components/Announcements/Cards";
+import type { AnnouncementCategory } from "../../../common/AnnouncementCategory";
+import type { GetServerSideProps } from "next";
+import type { AnnouncementContent } from "schweb-parser/dist/types/announcements/types";
 
 export interface AnnouncementPageProps {
   category: AnnouncementCategory;
