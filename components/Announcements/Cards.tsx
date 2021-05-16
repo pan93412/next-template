@@ -2,7 +2,7 @@ import React from "react";
 import { ListAnnouncementsMeta } from "schweb-parser/dist";
 import { Announcement } from "schweb-parser/dist/types/announcements/types";
 import useSWR from "swr";
-import { AnnouncementCategory, AnnouncementsMeta } from "../../common/Announcements";
+import { AnnouncementCategory, AnnouncementCategoryMetadata } from "../../common/Announcements";
 import Card from "../Base/BaseCard";
 
 async function getAnnouncements(
@@ -42,7 +42,7 @@ export default function AnnouncementCards({
     <div className={`grid grid-flow-row grid-cols-${maxColumns} gap-3 auto-cols-fr`}>
       {data.data?.map((announce) => (
         <Card
-          subtitle={AnnouncementsMeta[category].type}
+          subtitle={AnnouncementCategoryMetadata[category].type}
           href={`/announcement/${category}/${announce.id}`}
           key={announce.id}
         >

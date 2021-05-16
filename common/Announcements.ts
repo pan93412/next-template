@@ -18,7 +18,8 @@ export function isValidAnnouncementCategory(stuff: string): stuff is Announcemen
       return false;
   }
 }
-export const AnnouncementsMeta: Record<AnnouncementCategory, { type: string }> = {
+
+export const AnnouncementCategoryMetadata: Record<AnnouncementCategory, { type: string }> = {
   school: {
     type: "學校 SCHOOL",
   },

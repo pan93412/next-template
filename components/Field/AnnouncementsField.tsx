@@ -1,5 +1,5 @@
 import React from "react";
-import { AnnouncementsMeta } from "../../common/Announcements";
+import { AnnouncementCategoryMetadata } from "../../common/Announcements";
 import Card from "../Base/BaseCard";
 import Field from "./Field";
 
@@ -8,10 +8,10 @@ export default function AnnouncementsField() {
     <div>
       <Field title="公告" actions={[]}>
         {
-          Object.keys(AnnouncementsMeta).map((category) => {
+          Object.keys(AnnouncementCategoryMetadata).map((category) => {
             return (
               <Card href={`/announcement/${category}`} key={`announcement-in-${category}`} flexRow justifyBetween>
-                { AnnouncementsMeta[category].type }
+                { AnnouncementCategoryMetadata[category].type }
               </Card>
             );
           })

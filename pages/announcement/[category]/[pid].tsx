@@ -8,7 +8,7 @@ import parse from "html-react-parser";
 import Link from "next/link";
 import {
   AnnouncementCategory,
-  AnnouncementsMeta,
+  AnnouncementCategoryMetadata,
 } from "../../../common/Announcements";
 import FieldsGroup from "../../../components/Field/FieldsGroup";
 import AnnouncementCards from "../../../components/Announcements/Cards";
@@ -41,7 +41,7 @@ export default function AnnouncementPage({
         <div>
           <ArticlePageComponent
             title={data.title}
-            subtitle={AnnouncementsMeta[category].type}
+            subtitle={AnnouncementCategoryMetadata[category].type}
           >
             <div className="announcement content mb-6">
               {parse(data.contentHTML)}
