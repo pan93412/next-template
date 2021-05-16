@@ -2,7 +2,7 @@ import React from "react";
 import { ListAnnouncementsMeta } from "schweb-parser/dist";
 import { Announcement } from "schweb-parser/dist/types/announcements/types";
 import useSWR from "swr";
-import { Announcements, AnnouncementsMeta } from "../../common/Announcements";
+import { AnnouncementCategory, AnnouncementsMeta } from "../../common/Announcements";
 import Card from "../Base/BaseCard";
 
 async function getAnnouncements(
@@ -24,7 +24,7 @@ async function getAnnouncements(
 }
 
 export interface AnnouncementCardsProps {
-  category: Announcements;
+  category: AnnouncementCategory;
   maxColumns: number;
   // maxCards?: number;
 }

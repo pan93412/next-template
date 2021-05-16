@@ -2,7 +2,7 @@ import React from "react";
 import { ListAnnouncementsMeta } from "schweb-parser/dist";
 import { Announcement } from "schweb-parser/dist/types/announcements/types";
 import useSWR, { SWRResponse } from "swr";
-import { Announcements, AnnouncementsMeta } from "../../common/Announcements";
+import { AnnouncementCategory, AnnouncementsMeta } from "../../common/Announcements";
 import Card from "../Base/BaseCard";
 
 async function getAnnouncements(
@@ -24,7 +24,7 @@ async function getAnnouncements(
 }
 
 export interface AnnouncementsInnerFieldProps {
-  category: Announcements;
+  category: AnnouncementCategory;
 }
 
 export default function AnnouncementsInnerField({

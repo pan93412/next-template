@@ -1,4 +1,4 @@
-export enum Announcements {
+export enum AnnouncementCategory {
   School = "school",
   Contest = "contest",
   Grade = "grade",
@@ -6,7 +6,7 @@ export enum Announcements {
   Study = "study",
 };
 
-export function isAnnouncements(stuff: string): stuff is Announcements {
+export function isAnnouncements(stuff: string): stuff is AnnouncementCategory {
   switch (stuff) {
     case "school":
     case "contest":
@@ -18,7 +18,7 @@ export function isAnnouncements(stuff: string): stuff is Announcements {
       return false;
   }
 }
-export const AnnouncementsMeta: Record<Announcements, { type: string }> = {
+export const AnnouncementsMeta: Record<AnnouncementCategory, { type: string }> = {
   school: {
     type: "學校 SCHOOL",
   },

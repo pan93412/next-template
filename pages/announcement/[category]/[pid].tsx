@@ -7,14 +7,14 @@ import { AnnouncementContent } from "schweb-parser/dist/types/announcements/type
 import parse from "html-react-parser";
 import Link from "next/link";
 import {
-  Announcements,
+  AnnouncementCategory,
   AnnouncementsMeta,
 } from "../../../common/Announcements";
 import FieldsGroup from "../../../components/Field/FieldsGroup";
 import AnnouncementCards from "../../../components/Announcements/Cards";
 
 export interface AnnouncementPageProps {
-  category: Announcements;
+  category: AnnouncementCategory;
   pid: string;
   data: AnnouncementContent<unknown> | string;
 }

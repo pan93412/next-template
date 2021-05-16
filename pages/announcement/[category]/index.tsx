@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Announcements, AnnouncementsMeta, isAnnouncements } from "../../../common/Announcements";
+import { AnnouncementCategory, AnnouncementsMeta, isAnnouncements } from "../../../common/Announcements";
 import AnnouncementCards from "../../../components/Announcements/Cards";
 import Field from "../../../components/Field/Field";
 import BasePage from "../../../components/Page/BasePage";
@@ -8,7 +8,7 @@ import AnnouncementsField from "../../../components/Field/AnnouncementsField";
 import { GetServerSideProps } from "next";
 
 interface Props {
-  category: Announcements;
+  category: AnnouncementCategory;
 }
 
 export default function AnnouncementOverviewPage({ category }: Props) {
