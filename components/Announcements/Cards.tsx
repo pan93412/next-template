@@ -1,7 +1,7 @@
 import React from "react";
 import { ListAnnouncementsMeta } from "schweb-parser/dist";
 import { Announcement } from "schweb-parser/dist/types/announcements/types";
-import useSWR, { SWRResponse } from "swr";
+import useSWR from "swr";
 import { Announcements, AnnouncementsMeta } from "../../common/Announcements";
 import Card from "../Base/BaseCard";
 
