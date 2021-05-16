@@ -14,7 +14,7 @@ export interface FieldProps {
 
 export default function Field({ title, actions, children }: FieldProps) {
   return (
-    <div className="field">
+    <div className="field w-full">
       <div className="title-bar flex justify-between pb-4">
         <div>
           <h2 className="text-lg">{title}</h2>
@@ -32,7 +32,7 @@ export default function Field({ title, actions, children }: FieldProps) {
             })}
         </div>
       </div>
-      {children}
+      <div className="w-full">{children}</div>
     </div>
   );
 }
