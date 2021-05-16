@@ -1,5 +1,5 @@
 import React from "react";
-import { AnnouncementCategoryMetadata } from "../../common/Announcements";
+import { AnnouncementCategoryMetadata } from "../../common/AnnouncementCategory";
 import Card from "../Base/BaseCard";
 import Field from "./Field";
 

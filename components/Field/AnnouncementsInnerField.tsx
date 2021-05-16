@@ -2,7 +2,7 @@ import React from "react";
 import { ListAnnouncementsMeta } from "schweb-parser/dist";
 import { Announcement } from "schweb-parser/dist/types/announcements/types";
 import useSWR, { SWRResponse } from "swr";
-import { AnnouncementCategory, AnnouncementCategoryMetadata } from "../../common/Announcements";
+import { AnnouncementCategory, AnnouncementCategoryMetadata } from "../../common/AnnouncementCategory";
 import Card from "../Base/BaseCard";
 
 async function getAnnouncements(

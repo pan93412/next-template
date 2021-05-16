@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { AnnouncementCategory, AnnouncementCategoryMetadata, isValidAnnouncementCategory } from "../../../common/Announcements";
+import { AnnouncementCategory, AnnouncementCategoryMetadata, isValidAnnouncementCategory } from "../../../common/AnnouncementCategory";
 import AnnouncementCards from "../../../components/Announcements/Cards";
 import Field from "../../../components/Field/Field";
 import BasePage from "../../../components/Page/BasePage";

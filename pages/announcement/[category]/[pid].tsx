@@ -9,7 +9,7 @@ import Link from "next/link";
 import {
   AnnouncementCategory,
   AnnouncementCategoryMetadata,
-} from "../../../common/Announcements";
+} from "../../../common/AnnouncementCategory";
 import FieldsGroup from "../../../components/Field/FieldsGroup";
 import AnnouncementCards from "../../../components/Announcements/Cards";
 
