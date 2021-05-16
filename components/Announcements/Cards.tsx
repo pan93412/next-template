@@ -44,7 +44,7 @@ export default function AnnouncementCards({
         <Card
           subtitle={AnnouncementCategoryMetadata[category].type}
           href={`/announcement/${category}/${announce.id}`}
-          key={announce.id}
+          key={`announcement-card-${announce.id}`}
         >
           {announce.title}
         </Card>

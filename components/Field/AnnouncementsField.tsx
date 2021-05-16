@@ -10,7 +10,7 @@ export default function AnnouncementsField() {
         {
           Object.keys(AnnouncementCategoryMetadata).map((category) => {
             return (
-              <Card href={`/announcement/${category}`} key={`announcement-in-${category}`} flexRow justifyBetween>
+              <Card href={`/announcement/${category}`} key={`${category}-announcements`} flexRow justifyBetween>
                 { AnnouncementCategoryMetadata[category].type }
               </Card>
             );

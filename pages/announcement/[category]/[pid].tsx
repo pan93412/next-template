@@ -52,7 +52,7 @@ export default function AnnouncementPage({
                 <ul className="list-disc">
                   {data.attachments.map(({ name, url }) => {
                     return (
-                      <li key={name + url}>
+                      <li key={`announcement-details-${name}-${url}`}>
                         <a download className="text-blue-500" href={url}>
                           {name}
                         </a>
