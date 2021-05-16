@@ -11,22 +11,10 @@ import { AnnouncementsMeta } from '../../../common/Announcements';
 export interface AnnouncementPageProps {
   category: string;
   pid: string;
-  data: AnnouncementContent<unknown> | string | null;
+  data: AnnouncementContent<unknown> | string;
 }
 
 export default function AnnouncementPage({ data, pid, category }: AnnouncementPageProps) {
-  if (!data) {
-    return (
-      <BasePage id="announcement-page not-found">
-        <div className="p-6">
-          <h2 className="text-4xl font-mono mb-3">404</h2>
-          <p>找不到 {category} 之下的 {pid} 公告。</p>
-          <p>試試<span className="text-blue-500"><Link href="/">返回首頁</Link></span>看看更有趣的東西？</p>
-        </div>
-      </BasePage>
-    );
-  }
-
   if (typeof data === "string") {
     useEffect(() => {
       location.href = data;
@@ -72,11 +60,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     try {
       const announcementData = await GetAnnouncement(category, pid);
 
-      return {
+      if (announcementData?.data) return {
         props: {
           category,
           pid,
-          data: announcementData?.data || null,
+          data: announcementData?.data,
         },
       };
     } catch (e: unknown) {
@@ -84,21 +72,17 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       const announcementsData = await ListAnnouncements(category);
       const data = announcementsData.data.filter(announce => announce.id === pid);
 
-      return {
+      if (data[0]?.url) return {
         props: {
           category,
           pid,
-          data: data[0]?.url || null,
+          data: data[0].url,
         },
       };
     }
   }
 
   return {
-    props: {
-      category,
-      pid,
-      data: null,
-    }
+    notFound: true,
   }
 };
