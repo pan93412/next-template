@@ -1,6 +1,7 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import Link from "next/link";
 import type { ReactNode } from "react";
 
 export interface CardProps {
@@ -51,9 +52,9 @@ export default function Card({
       {subtitle && <div className="font-light text-sm">{subtitle}</div>}
       <div className="font-bold text-lg break-words">{children}</div>
       {href && (
-        <a href={href}>
+        <Link href={href}>
           <FontAwesomeIcon icon={faArrowRight} />
-        </a>
+        </Link>
       )}
     </div>
   );
