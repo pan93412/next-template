@@ -4,6 +4,8 @@ import AnnouncementCards from "../../../components/Announcements/Cards";
 import Field from "../../../components/Field/Field";
 import BasePage from "../../../components/Page/BasePage";
 import { useRouter } from 'next/router'
+import FieldsGroup from "../../../components/Field/FieldsGroup";
+import AnnouncementsField from "../../../components/Field/AnnouncementsField";
 
 export default function AnnouncementOverviewPage() {
   const router = useRouter();
@@ -19,11 +21,16 @@ export default function AnnouncementOverviewPage() {
   return (
     <BasePage id="announcement overview">
       <div className="p-10">
-        <Field title={`公告 / ${AnnouncementsMeta[category].type}`} actions={[]}>
-          <div className="p-3">
-            <AnnouncementCards maxColumns={3} category={category}></AnnouncementCards>
+        <FieldsGroup>
+          <AnnouncementsField />
+          <div>
+            <Field title={`公告 / ${AnnouncementsMeta[category].type}`} actions={[]}>
+              <div className="p-3">
+                <AnnouncementCards maxColumns={2} category={category}></AnnouncementCards>
+              </div>
+            </Field>
           </div>
-        </Field>
+        </FieldsGroup>
       </div>
     </BasePage>
   );

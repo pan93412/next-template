@@ -41,7 +41,7 @@ export default function AnnouncementCards({
   const data = useMySWR(category);
 
   return (
-    <div className={`grid grid-flow-row grid-cols-${maxColumns} auto-cols-fr`}>
+    <div className={`grid grid-flow-row grid-cols-${maxColumns} gap-3 auto-cols-fr`}>
       {data.data?.map((announce) => (
         <Card
           subtitle={AnnouncementsMeta[category].type}
