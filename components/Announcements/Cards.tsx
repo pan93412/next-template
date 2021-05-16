@@ -1,11 +1,11 @@
 import React from "react";
 import { ListAnnouncementsMeta } from "schweb-parser/dist";
-import { Announcement } from "schweb-parser/dist/types/announcements/types";
+import type { Announcement } from "schweb-parser/dist/types/announcements/types";
 import useSWR from "swr";
 import { AnnouncementCategory, AnnouncementCategoryMetadata } from "../../common/AnnouncementCategory";
 import Card from "../Base/BaseCard";
 
-async function getAnnouncements(
+async function getAnnouncementsSWR(
   input: RequestInfo,
   init?: RequestInit
 ): Promise<Announcement[] | never> {
@@ -29,13 +29,13 @@ export interface AnnouncementCardsProps {
   // maxCards?: number;
 }
 
+const endp = ListAnnouncementsMeta.endpoint;
+const useMySWR = (category: string) =>
+  useSWR(endp(category), getAnnouncementsSWR);
+
 export default function AnnouncementCards({
   category, maxColumns
 }: AnnouncementCardsProps) {
-  const endp = ListAnnouncementsMeta.endpoint;
-  const useMySWR = (category: string) =>
-    useSWR(endp(category), getAnnouncements);
-
   const data = useMySWR(category);
 
   return (
