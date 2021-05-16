@@ -1,23 +1,17 @@
 import React, { useEffect } from "react";
-import { AnnouncementsMeta, isAnnouncements } from "../../../common/Announcements";
+import { Announcements, AnnouncementsMeta, isAnnouncements } from "../../../common/Announcements";
 import AnnouncementCards from "../../../components/Announcements/Cards";
 import Field from "../../../components/Field/Field";
 import BasePage from "../../../components/Page/BasePage";
-import { useRouter } from 'next/router'
 import FieldsGroup from "../../../components/Field/FieldsGroup";
 import AnnouncementsField from "../../../components/Field/AnnouncementsField";
+import { GetServerSideProps } from "next";
 
-export default function AnnouncementOverviewPage() {
-  const router = useRouter();
-  const category = router.query.category as string;
+interface Props {
+  category: Announcements;
+}
 
-  if (!isAnnouncements(category)) {
-    useEffect(() => {
-      router.push("/announcement/school");
-    });
-    return null;
-  }
-
+export default function AnnouncementOverviewPage({ category }: Props) {
   return (
     <BasePage id="announcement overview">
       <div className="p-10">
@@ -35,3 +29,23 @@ export default function AnnouncementOverviewPage() {
     </BasePage>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const category = context.query.category;
+
+  if (!isAnnouncements(category as string)) {
+    return {
+      redirect: {
+        destination: "/announcement/category/school",
+        permanent: true,
+      },
+    };
+  }
+
+  return {
+    props: {
+      category,
+    },
+  };
+}
+
