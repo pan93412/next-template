@@ -16,13 +16,11 @@ export default function AnnouncementOverviewPage({ category }: Props) {
     <BasePage id="announcement overview">
       <div className="p-10">
         <FieldsGroup>
-          <AnnouncementsField />
+          <div className="opacity-40">
+            <AnnouncementsField />
+          </div>
           <div>
-            <Field title={`公告 / ${AnnouncementsMeta[category].type}`} actions={[]}>
-              <div className="p-3">
-                <AnnouncementCards maxColumns={2} category={category}></AnnouncementCards>
-              </div>
-            </Field>
+            <AnnouncementCards maxColumns={2} category={category}></AnnouncementCards>
           </div>
         </FieldsGroup>
       </div>
