@@ -1,12 +1,14 @@
-import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+import type { GetServerSideProps } from "next";
 
 export default function AnnouncementRootRedirector() {
-  const router = useRouter();
-
-  useEffect(() => {
-    router.push("/announcement/school");
-  });
-
   return null;
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  return {
+    redirect: {
+      destination: "/announcement/category/school",
+      permanent: false,
+    },
+  };
 }
