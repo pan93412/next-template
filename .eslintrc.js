@@ -7,6 +7,8 @@ module.exports = {
   extends: [
     "eslint:recommended",
     'plugin:react/recommended',
+    'plugin:import/recommended',
+    'plugin:import/typescript',
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     'airbnb-typescript',
@@ -34,5 +36,11 @@ module.exports = {
     ],
     "@typescript-eslint/explicit-module-boundary-types": 0,
     "@typescript-eslint/restrict-template-expressions": 0,
+    "import/order": [
+      1,
+      {
+        groups: ["builtin", "external", "internal", "parent", "sibling", "index", "object"],
+      },
+    ],
   },
 };
