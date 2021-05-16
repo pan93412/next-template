@@ -1,4 +1,5 @@
-import React, { ReactNode } from "react";
+import React from "react";
+import type { ReactNode } from "react";
 import Navbar from "../Navbar/Navbar";
 
 export interface BasePageProps {
@@ -6,11 +7,11 @@ export interface BasePageProps {
   children: ReactNode;
 }
 
-export default function BasePage(props: BasePageProps) {
+export default function BasePage({ id, children }: BasePageProps) {
   return (
-    <div className={`page-${props.id}`}>
-      <Navbar></Navbar>
-      { props.children }
+    <div className={`page-${id}`}>
+      <Navbar />
+      {children}
     </div>
-  )
+  );
 }

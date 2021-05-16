@@ -10,16 +10,21 @@ import AnnouncementsField from "../components/Field/AnnouncementsField";
 
 export default function Home() {
   return (
-    <BasePage id="home">
-      <FieldsGroup>
-        <InfoField />
-        <ArticleField />
-        <AnnouncementsField />
-      </FieldsGroup>
-      <PopupGroup>
-        <Popup level={PopupLevel.WARN}>笑死，你又沒錢贊助。</Popup>
-        <Popup level={PopupLevel.INFO}>網站還在架設。想要支持我們嗎？</Popup>
-      </PopupGroup>
-    </BasePage>
+    <>
+      <Head>
+        <title>SCHWEB | 首頁</title>
+      </Head>
+      <BasePage id="home">
+        <FieldsGroup>
+          <InfoField />
+          <ArticleField />
+          <AnnouncementsField />
+        </FieldsGroup>
+        <PopupGroup>
+          <Popup level={PopupLevel.WARN}>笑死，你又沒錢贊助。</Popup>
+          <Popup level={PopupLevel.INFO}>網站還在架設。想要支持我們嗎？</Popup>
+        </PopupGroup>
+      </BasePage>
+    </>
   );
 }

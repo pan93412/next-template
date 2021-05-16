@@ -4,9 +4,11 @@ export enum AnnouncementCategory {
   Grade = "grade",
   Law = "law",
   Study = "study",
-};
+}
 
-export function isValidAnnouncementCategory(stuff: string): stuff is AnnouncementCategory {
+export function isValidAnnouncementCategory(
+  stuff: string
+): stuff is AnnouncementCategory {
   switch (stuff) {
     case "school":
     case "contest":
@@ -19,7 +21,10 @@ export function isValidAnnouncementCategory(stuff: string): stuff is Announcemen
   }
 }
 
-export const AnnouncementCategoryMetadata: Record<AnnouncementCategory, { type: string }> = {
+export const AnnouncementCategoryMetadata: Record<
+  AnnouncementCategory,
+  { type: string }
+> = {
   school: {
     type: "學校 SCHOOL",
   },

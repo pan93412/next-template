@@ -17,7 +17,7 @@ export default function SearchBar() {
           type="text"
           className="bg-transparent w-full"
           placeholder="大家都在搜：新冠肺炎 停課"
-        ></input>
+        />
       </div>
     </div>
   );

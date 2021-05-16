@@ -237,7 +237,7 @@
 
 "@typescript-eslint/eslint-plugin@^4.23.0":
   version "4.23.0"
-  resolved "https://registry.npmjs.org/@typescript-eslint/eslint-plugin/-/eslint-plugin-4.23.0.tgz"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-4.23.0.tgz#29d3c9c81f6200b1fd6d8454cfb007ba176cde80"
   integrity sha512-tGK1y3KIvdsQEEgq6xNn1DjiFJtl+wn8JJQiETtCbdQxw1vzjXyAaIkEmO2l6Nq24iy3uZBMFQjZ6ECf1QdgGw==
   dependencies:
     "@typescript-eslint/experimental-utils" "4.23.0"
@@ -1255,7 +1255,7 @@ eslint-config-airbnb-typescript@^12.3.1:
     eslint-config-airbnb "^18.2.0"
     eslint-config-airbnb-base "^14.2.0"
 
-eslint-config-airbnb@^18.2.0, eslint-config-airbnb@^18.2.1:
+eslint-config-airbnb@^18.2.0:
   version "18.2.1"
   resolved "https://registry.npmjs.org/eslint-config-airbnb/-/eslint-config-airbnb-18.2.1.tgz"
   integrity sha512-glZNDEZ36VdlZWoxn/bUR1r/sdFKPd1mHPbqUtkctgNG4yT2DLLtJ3D+yCV+jzZCc2V1nBVkmdknOJBZ5Hc0fg==

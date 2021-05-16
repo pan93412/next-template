@@ -1,13 +1,11 @@
-import 'tailwindcss/tailwind.css';
-import '../styles/global.css';
-import { AnimateSharedLayout } from "framer-motion"
+import React from "react";
+import type { AppProps } from "next/app";
+import "tailwindcss/tailwind.css";
+import "../styles/global.css";
 
-function MyApp({ Component, pageProps }) {
-  return (
-    <AnimateSharedLayout>
-      <Component {...pageProps} />
-    </AnimateSharedLayout>
-  )
+function MyApp({ Component, pageProps }: AppProps) {
+  // eslint-disable-next-line react/jsx-props-no-spreading
+  return <Component {...pageProps} />;
 }
 
-export default MyApp
+export default MyApp;

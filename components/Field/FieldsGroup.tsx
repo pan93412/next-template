@@ -1,3 +1,4 @@
+import React from "react";
 import type { ReactNode } from "react";
 
 export interface FieldsGroupProps {
@@ -5,9 +6,5 @@ export interface FieldsGroupProps {
 }
 
 export default function FieldsGroup({ children }: FieldsGroupProps) {
-  return (
-    <div className="flex justify-around p-8 w-full">
-      { children }
-    </div>
-  );
+  return <div className="flex justify-around p-8 w-full">{children}</div>;
 }

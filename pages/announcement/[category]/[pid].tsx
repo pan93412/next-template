@@ -1,43 +1,29 @@
-import React, { useEffect } from "react";
-import { ArticlePageComponent } from "../../../components/Page/ArticlePageComponent";
-import BasePage from "../../../components/Page/BasePage";
-import type { GetServerSideProps } from "next";
+import React from "react";
 import { GetAnnouncement, ListAnnouncements } from "schweb-parser/dist";
-import { AnnouncementContent } from "schweb-parser/dist/types/announcements/types";
 import parse from "html-react-parser";
-import Link from "next/link";
-import {
-  AnnouncementCategory,
-  AnnouncementCategoryMetadata,
-} from "../../../common/AnnouncementCategory";
+import type { AnnouncementContent } from "schweb-parser/dist/types/announcements/types";
+import type { GetServerSideProps } from "next";
+import BasePage from "../../../components/Page/BasePage";
+import { ArticlePageComponent } from "../../../components/Page/ArticlePageComponent";
+import type { AnnouncementCategory } from "../../../common/AnnouncementCategory";
+import { AnnouncementCategoryMetadata } from "../../../common/AnnouncementCategory";
 import FieldsGroup from "../../../components/Field/FieldsGroup";
 import AnnouncementCards from "../../../components/Announcements/Cards";
 
 export interface AnnouncementPageProps {
   category: AnnouncementCategory;
   pid: string;
-  data: AnnouncementContent<unknown> | string;
+  data: AnnouncementContent<unknown>;
 }
 
 export default function AnnouncementPage({
   data,
-  pid,
   category,
 }: AnnouncementPageProps) {
-  if (typeof data === "string") {
-    useEffect(() => {
-      location.href = data;
-    });
-    return null;
-  }
-
   return (
     <BasePage id="announcement-page">
       <FieldsGroup>
-        <AnnouncementCards
-          maxColumns={1}
-          category={category}
-        ></AnnouncementCards>
+        <AnnouncementCards maxColumns={1} category={category} />
         <div>
           <ArticlePageComponent
             title={data.title}
@@ -98,10 +84,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
       if (data[0]?.url)
         return {
-          props: {
-            category,
-            pid,
-            data: data[0].url,
+          redirect: {
+            destination: data[0].url,
+            permanent: false,
           },
         };
     }
