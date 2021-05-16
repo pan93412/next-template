@@ -6,7 +6,7 @@ export enum AnnouncementCategory {
   Study = "study",
 };
 
-export function isAnnouncements(stuff: string): stuff is AnnouncementCategory {
+export function isValidAnnouncementCategory(stuff: string): stuff is AnnouncementCategory {
   switch (stuff) {
     case "school":
     case "contest":

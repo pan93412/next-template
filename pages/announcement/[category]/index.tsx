@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { AnnouncementCategory, AnnouncementsMeta, isAnnouncements } from "../../../common/Announcements";
+import { AnnouncementCategory, AnnouncementsMeta, isValidAnnouncementCategory } from "../../../common/Announcements";
 import AnnouncementCards from "../../../components/Announcements/Cards";
 import Field from "../../../components/Field/Field";
 import BasePage from "../../../components/Page/BasePage";
@@ -31,7 +31,7 @@ export default function AnnouncementOverviewPage({ category }: Props) {
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const category = context.query.category;
 
-  if (!isAnnouncements(category as string)) {
+  if (!isValidAnnouncementCategory(category as string)) {
     return {
       redirect: {
         destination: "/announcement/category/school",
