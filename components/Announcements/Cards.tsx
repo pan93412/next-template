@@ -34,9 +34,7 @@ export default function AnnouncementCards({
 }: AnnouncementCardsProps) {
   const endp = ListAnnouncementsMeta.endpoint;
   const useMySWR = (category: string) =>
-    useSWR(endp(category), getAnnouncements, {
-      revalidateOnMount: true,
-    });
+    useSWR(endp(category), getAnnouncements);
 
   const data = useMySWR(category);
 
