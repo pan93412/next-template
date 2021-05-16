@@ -6,7 +6,7 @@ export interface FieldsGroupProps {
 
 export default function FieldsGroup({ children }: FieldsGroupProps) {
   return (
-    <div className="flex justify-between p-8 w-full">
+    <div className="flex justify-around p-8 w-full">
       { children }
     </div>
   );
