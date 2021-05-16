@@ -5,7 +5,7 @@ import Field from "./Field";
 export default function InfoField() {
   return (
     <div>
-      <Field title="資訊卡" actions={[]}>
+      <Field title="資訊卡">
         <Card
           subtitle="COVID-19 疫情"
           backgroundImage="/testpage/virus.png"

@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 
 export interface FieldProps {
   title: string;
-  actions: {
+  actions?: {
     icon: IconDefinition,
     action: () => void;
   }[];
@@ -19,7 +19,7 @@ export default function Field({title, actions, children}: FieldProps) {
           <h2 className="text-lg">{ title }</h2>
           </div>
         <div>
-          { actions.map(({ icon, action }, index) => {
+          { actions && actions.map(({ icon, action }, index) => {
             return (
               <FontAwesomeIcon icon={icon} onClick={action} key={`${title}-action-${index}-icon`} />
             );

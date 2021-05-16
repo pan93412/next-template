@@ -6,7 +6,7 @@ import Field from "./Field";
 export default function AnnouncementsField() {
   return (
     <div>
-      <Field title="公告" actions={[]}>
+      <Field title="公告">
         {
           Object.keys(AnnouncementCategoryMetadata).map((category) => {
             return (
