@@ -41,7 +41,7 @@ export default function Card({
 }: CardProps) {
   return (
     <div
-      className={`card w-3/5 rounded-lg px-4 py-6 mb-3 flex ${
+      className={`card rounded-lg px-4 py-6 mb-3 flex ${
         flexRow || "flex-col justify-center"
       } ${justifyBetween && "justify-between"} space-y-1`}
       style={{
