@@ -5,7 +5,7 @@ import BasePage from "../../../components/Page/BasePage";
 import { ArticlePageComponent } from "../../../components/Page/ArticlePageComponent";
 import { AnnouncementCategoryMetadata } from "../../../common/AnnouncementCategory";
 import FieldsGroup from "../../../components/Field/FieldsGroup";
-import AnnouncementCards from "../../../components/Announcements/Cards";
+import Field from "../../../components/Field/Field";
 import type { AnnouncementCategory } from "../../../common/AnnouncementCategory";
 import type { GetServerSideProps } from "next";
 import type { AnnouncementContent } from "schweb-parser/dist/types/announcements/types";
@@ -23,8 +23,9 @@ export default function AnnouncementPage({
   return (
     <BasePage id="announcement-page">
       <FieldsGroup>
-        <AnnouncementCards maxColumns={1} category={category} />
-        <div>
+        <Field
+          title={`公告 / ${AnnouncementCategoryMetadata[category].type} / ${data.title}`}
+        >
           <ArticlePageComponent
             title={data.title}
             subtitle={AnnouncementCategoryMetadata[category].type}
@@ -49,7 +50,7 @@ export default function AnnouncementPage({
               </div>
             )}
           </ArticlePageComponent>
-        </div>
+        </Field>
       </FieldsGroup>
     </BasePage>
   );
