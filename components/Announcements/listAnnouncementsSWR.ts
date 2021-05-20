@@ -5,15 +5,12 @@ import type { Announcement } from "schweb-parser/dist/types/announcements/types"
 export default async function listAnnouncementsSWR(
   input: RequestInfo,
   init?: RequestInit
-): Promise<Announcement[] | never> {
+): Promise<Announcement[] | null> {
   const resp = await fetch(input, init);
-  if (!resp.ok) throw new Error(`failed to fetch: ${input.toString()}`);
+  if (!resp.ok) return null;
 
   const json = (await resp.json()) as Promise<unknown>;
-
-  if (!ListAnnouncementsMeta.checker(json)) {
-    throw new Error(`data is invalid: ${JSON.stringify(json)}`);
-  }
+  if (!ListAnnouncementsMeta.checker(json)) return null;
 
   return json.data;
 }
