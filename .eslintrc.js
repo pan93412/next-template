@@ -42,5 +42,7 @@ module.exports = {
         groups: ["builtin", "external", "internal", "parent", "sibling", "index", "object"],
       },
     ],
+    "react/jsx-key": 2,
+    "arrow-body-style": 2,
   },
 };
