@@ -1,9 +1,12 @@
 import React from "react";
-import { isValidAnnouncementCategory } from "../../../common/AnnouncementCategory";
+import {
+  AnnouncementCategoryMetadata,
+  isValidAnnouncementCategory,
+} from "../../../common/AnnouncementCategory";
 import AnnouncementCards from "../../../components/Announcements/Cards";
 import BasePage from "../../../components/Page/BasePage";
 import FieldsGroup from "../../../components/Field/FieldsGroup";
-import AnnouncementsField from "../../../components/Field/AnnouncementsField";
+import Field from "../../../components/Field/Field";
 import type { AnnouncementCategory } from "../../../common/AnnouncementCategory";
 import type { GetServerSideProps } from "next";
 
@@ -14,14 +17,13 @@ interface Props {
 export default function AnnouncementOverviewPage({ category }: Props) {
   return (
     <BasePage id="announcement overview">
-      <div className="p-10">
+      <div className="p-4">
         <FieldsGroup>
-          <div className="opacity-40">
-            <AnnouncementsField />
-          </div>
-          <div>
-            <AnnouncementCards maxColumns={2} category={category} />
-          </div>
+          <Field
+            title={`公告 / ${AnnouncementCategoryMetadata[category].type}`}
+          >
+            <AnnouncementCards maxColumns={4} category={category} />
+          </Field>
         </FieldsGroup>
       </div>
     </BasePage>
