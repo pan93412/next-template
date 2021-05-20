@@ -6,7 +6,7 @@ import type { AnnouncementCategory } from "../../common/AnnouncementCategory";
 
 export default function AnnouncementsField() {
   return (
-    <div>
+    <div className="w-80">
       <Field title="公告">
         {Object.keys(AnnouncementCategoryMetadata).map(
           (category: AnnouncementCategory) => {

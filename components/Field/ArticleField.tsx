@@ -4,7 +4,7 @@ import Field from "./Field";
 
 export default function ArticleField() {
   return (
-    <div>
+    <div className="w-80">
       <Field title="專欄">
         <Card
           subtitle="你是學生，他是老師，你就錯了。"

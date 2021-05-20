@@ -4,7 +4,7 @@ import Field from "./Field";
 
 export default function InfoField() {
   return (
-    <div>
+    <div className="w-80">
       <Field title="資訊卡">
         <Card
           subtitle="COVID-19 疫情"
