@@ -1,11 +1,11 @@
 import React from "react";
 import { GetAnnouncement, ListAnnouncements } from "schweb-parser/dist";
-import parse from "html-react-parser";
 import BasePage from "../../../components/Page/BasePage";
 import { ArticlePageComponent } from "../../../components/Page/ArticlePageComponent";
 import { AnnouncementCategoryMetadata } from "../../../common/AnnouncementCategory";
 import FieldsGroup from "../../../components/Field/FieldsGroup";
 import Field from "../../../components/Field/Field";
+import AnnouncementBody from "../../../components/Announcements/AnnouncementBody";
 import type { AnnouncementCategory } from "../../../common/AnnouncementCategory";
 import type { GetServerSideProps } from "next";
 import type { AnnouncementContent } from "schweb-parser/dist/types/announcements/types";
@@ -13,7 +13,7 @@ import type { AnnouncementContent } from "schweb-parser/dist/types/announcements
 export interface AnnouncementPageProps {
   category: AnnouncementCategory;
   pid: string;
-  data: AnnouncementContent<unknown>;
+  data: AnnouncementContent;
 }
 
 export default function AnnouncementPage({
@@ -30,25 +30,7 @@ export default function AnnouncementPage({
             title={data.title}
             subtitle={AnnouncementCategoryMetadata[category].type}
           >
-            <div className="announcement content mb-6">
-              {parse(data.contentHTML)}
-            </div>
-            {data.attachments.length > 0 && (
-              <div className="announcement attachments">
-                <h2 className="text-xl font-bold mb-2">附件</h2>
-                <ul className="list-disc">
-                  {data.attachments.map(({ name, url }) => {
-                    return (
-                      <li key={`announcement-details-${name}-${url}`}>
-                        <a download className="text-blue-500" href={url}>
-                          {name}
-                        </a>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            )}
+            <AnnouncementBody data={data} />
           </ArticlePageComponent>
         </Field>
       </FieldsGroup>
@@ -57,6 +39,8 @@ export default function AnnouncementPage({
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
+  if (!context.params || !context.params.category || !context.params.pid)
+    throw new Error("unexpected: params, category or pid is null");
   const { category, pid } = context.params;
 
   if (
@@ -73,17 +57,17 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
           props: {
             category,
             pid,
-            data: announcementData?.data,
+            data: announcementData.data,
           },
         };
     } catch (e: unknown) {
       // Maybe it is a link to an external site?
       const announcementsData = await ListAnnouncements(category);
-      const data = announcementsData.data.filter(
+      const data = announcementsData?.data.filter(
         (announce) => announce.id === pid
       );
 
-      if (data[0]?.url)
+      if (data && data[0]?.url)
         return {
           redirect: {
             destination: data[0].url,
