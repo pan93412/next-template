@@ -4,9 +4,9 @@ import BasePage from "../components/Page/BasePage";
 import PopupGroup from "../components/Popups/PopupGroup";
 import Popup, { PopupLevel } from "../components/Popups/Popup";
 import FieldsGroup from "../components/Field/FieldsGroup";
-import InfoField from "../components/Field/InfoField";
-import ArticleField from "../components/Field/ArticleField";
-import AnnouncementsField from "../components/Field/AnnouncementsField";
+import InfoField from "../components/Info/InfoField";
+import ArticleField from "../components/Page/ArticleField";
+import AnnouncementsField from "../components/Announcements/AnnouncementsField";
 
 export default function Home() {
   return (
