@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import SearchBar from "./SearchBar";
+// import SearchBar from "./SearchBar";
 
 export default function Navbar() {
   return (
@@ -9,7 +9,7 @@ export default function Navbar() {
         <Link href="/">SCHWEB</Link>
       </div>
       <div className="col-start-1 md:col-start-2 col-end-2">
-        <SearchBar />
+        {/* <SearchBar /> */}
       </div>
     </div>
   );
