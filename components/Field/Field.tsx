@@ -21,15 +21,13 @@ export default function Field({ title, actions, children }: FieldProps) {
         </div>
         <div>
           {actions &&
-            actions.map(({ icon, action }, index) => {
-              return (
-                <FontAwesomeIcon
-                  icon={icon}
-                  onClick={action}
-                  key={`${title}-action-${index + 1}-icon`}
-                />
-              );
-            })}
+            actions.map(({ icon, action }, index) => (
+              <FontAwesomeIcon
+                icon={icon}
+                onClick={action}
+                key={`${title}-action-${index + 1}-icon`}
+              />
+            ))}
         </div>
       </div>
       <div className="w-full">{children}</div>
