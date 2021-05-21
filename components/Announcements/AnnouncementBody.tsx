@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 import React from "react";
+import ReactHtmlParser from "react-html-parser";
 import type { AnnouncementContent } from "schweb-parser/dist/types/announcements/types";
 
 export interface AnnouncementBodyProps {
@@ -8,7 +10,9 @@ export interface AnnouncementBodyProps {
 export default function AnnouncementBody({ data }: AnnouncementBodyProps) {
   return (
     <>
-      <div className="announcement content mb-6">{data.contentHTML}</div>
+      <div className="announcement content mb-6">
+        {ReactHtmlParser(data.contentHTML)}
+      </div>
       {data.attachments.length > 0 && (
         <div className="announcement attachments">
           <h2 className="text-xl font-bold mb-2">附件</h2>
