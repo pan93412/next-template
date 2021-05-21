@@ -2,6 +2,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/dist/client/router";
 import React from "react";
 import Field from "../Field/Field";
+import { HumanReadableCategory } from "../../common/AnnouncementCategory";
 import AnnouncementCards from "./AnnouncementCards";
 import { useListAnnouncementsSWR } from "./listAnnouncementsSWR";
 import type { AnnouncementCategory } from "../../common/AnnouncementCategory";
@@ -19,7 +20,7 @@ export default function AnnouncementsField({
   return (
     <div className="w-80">
       <Field
-        title="公告"
+        title={HumanReadableCategory(category)}
         actions={[
           {
             icon: faArrowRight,
