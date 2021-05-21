@@ -8,7 +8,7 @@ export default function InfoField() {
       <Field title="資訊卡">
         <Card
           subtitle="COVID-19 疫情"
-          backgroundImage="/testpage/virus.png"
+          background="url(/testpage/virus.png)"
           href="https://google.com"
         >
           停班停課，

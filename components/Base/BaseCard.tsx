@@ -14,43 +14,31 @@ export interface CardProps {
    */
   href?: string;
   /**
-   * 背景圖
+   * 背景圖 (url()) 或 Hex 顏色
    */
-  backgroundImage?: string;
+  background?: string;
   /**
    * 標題部分
    */
   children: ReactNode;
-  /**
-   * 全部擠在一列
-   */
-  flexRow?: boolean;
-  /**
-   * 使用 justify-between
-   */
-  justifyBetween?: boolean;
 }
 
-export default function Card({
+export default function BaseLargeCard({
   subtitle,
   children,
   href,
-  backgroundImage,
-  flexRow,
-  justifyBetween,
+  background = "#F2F2F2",
 }: CardProps) {
   return (
     <div
-      className={`card rounded-lg px-4 py-6 mb-3 flex ${
-        flexRow || "flex-col justify-center"
-      } ${justifyBetween && "justify-between"} space-y-1`}
+      className="card rounded-lg p-6 flex flex-col justify-center space-y-1"
       style={{
-        background: backgroundImage ? `url(${backgroundImage})` : `#F2F2F2`,
+        background,
         backgroundSize: "cover",
       }}
     >
       {subtitle && <div className="font-light text-sm">{subtitle}</div>}
-      <div className="font-bold text-lg break-words">{children}</div>
+      <div className="font-bold text-lg">{children}</div>
       {href && (
         <Link href={href}>
           <FontAwesomeIcon icon={faArrowRight} />
