@@ -8,6 +8,9 @@ module.exports = {
         "serif": "'Noto Serif TC', serif",
         "mono": "'JetBrains Mono', monospace",
       },
+      minWidth: {
+        "field": "17rem",
+      }
     },
   },
   variants: {
