@@ -4,25 +4,6 @@ import BaseLargeCard from "../Base/BaseCardV2";
 import type { Announcement } from "schweb-parser/dist/types/announcements/types";
 import type { AnnouncementCategory } from "../../common/AnnouncementCategory";
 
-// export async function getAnnouncementsSWR(
-//   input: RequestInfo,
-//   init?: RequestInit
-// ): Promise<Announcement[] | never> {
-//   const resp = await fetch(input, init);
-//   if (!resp.ok)
-//     throw new Error(`getAnnouncements: failed to fetch: ${input.toString()}`);
-
-//   const json = (await resp.json()) as Promise<unknown>;
-
-//   if (!ListAnnouncementsMeta.checker(json)) {
-//     throw new Error(
-//       `getAnnouncements: data is invalid: ${JSON.stringify(json)}`
-//     );
-//   }
-
-//   return json.data;
-// }
-
 export interface AnnouncementCardsProps {
   data: Announcement[];
   category: AnnouncementCategory;
