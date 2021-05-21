@@ -20,13 +20,11 @@ interface Props {
 export default function AnnouncementOverviewPage({ data, category }: Props) {
   return (
     <BasePage id="announcement overview">
-      <div className="p-4">
-        <FieldsGroup>
-          <Field title={`公告 / ${HumanReadableCategory(category)}`}>
-            <AnnouncementCards data={data} maxColumns={4} category={category} />
-          </Field>
-        </FieldsGroup>
-      </div>
+      <FieldsGroup>
+        <Field title={`公告 / ${HumanReadableCategory(category)}`}>
+          <AnnouncementCards data={data} maxColumns={4} category={category} />
+        </Field>
+      </FieldsGroup>
     </BasePage>
   );
 }

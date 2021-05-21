@@ -11,7 +11,7 @@ export default function BasePage({ id, children }: BasePageProps) {
   return (
     <div className={`page-${id}`}>
       <Navbar />
-      {children}
+      <div className="p-8">{children}</div>
     </div>
   );
 }
