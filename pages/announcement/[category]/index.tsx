@@ -4,7 +4,7 @@ import {
   HumanReadableCategory,
   isValidAnnouncementCategory,
 } from "../../../common/AnnouncementCategory";
-import AnnouncementCards from "../../../components/Announcements/Cards";
+import AnnouncementCards from "../../../components/Announcements/AnnouncementCards";
 import BasePage from "../../../components/Page/BasePage";
 import FieldsGroup from "../../../components/Field/FieldsGroup";
 import Field from "../../../components/Field/Field";

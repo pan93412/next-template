@@ -2,7 +2,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/dist/client/router";
 import React from "react";
 import Field from "../Field/Field";
-import AnnouncementCards from "./Cards";
+import AnnouncementCards from "./AnnouncementCards";
 import { useListAnnouncementsSWR } from "./listAnnouncementsSWR";
 import type { AnnouncementCategory } from "../../common/AnnouncementCategory";
 
