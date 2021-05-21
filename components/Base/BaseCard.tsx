@@ -40,9 +40,11 @@ export default function BaseLargeCard({
       {subtitle && <div className="font-light text-sm">{subtitle}</div>}
       <div className="font-bold text-lg">{children}</div>
       {href && (
-        <Link href={href}>
-          <FontAwesomeIcon icon={faArrowRight} />
-        </Link>
+        <button type="button" className="w-min">
+          <Link href={href}>
+            <FontAwesomeIcon icon={faArrowRight} />
+          </Link>
+        </button>
       )}
     </div>
   );

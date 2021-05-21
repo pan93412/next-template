@@ -22,11 +22,13 @@ export default function Field({ title, actions, children }: FieldProps) {
         <div>
           {actions &&
             actions.map(({ icon, action }, index) => (
-              <FontAwesomeIcon
-                icon={icon}
-                onClick={action}
+              <button
+                type="button"
+                className="w-min"
                 key={`${title}-action-${index + 1}-icon`}
-              />
+              >
+                <FontAwesomeIcon icon={icon} onClick={action} />
+              </button>
             ))}
         </div>
       </div>
