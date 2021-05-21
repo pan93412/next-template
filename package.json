@@ -8,6 +8,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@fontsource/noto-sans-tc": "^4.3.0",
+    "@fontsource/noto-serif-tc": "^4.3.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
@@ -15,6 +17,7 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "autoprefixer": "^10.2.5",
     "html-react-parser": "^1.2.6",
+    "jetbrains-mono-webfont": "^0.1.0",
     "next": "10.2.0",
     "postcss": "^8.2.15",
     "react": "17.0.2",
