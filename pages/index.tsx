@@ -18,7 +18,7 @@ export default function Home() {
         <FieldsGroup>
           <InfoField />
           <ArticleField />
-          <AnnouncementsField />
+          <AnnouncementsField category="akmrl" />
         </FieldsGroup>
         <PopupGroup>
           <Popup level={PopupLevel.WARN}>笑死，你又沒錢贊助。</Popup>

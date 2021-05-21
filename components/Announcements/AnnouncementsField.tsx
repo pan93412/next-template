@@ -1,34 +1,37 @@
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { useRouter } from "next/dist/client/router";
 import React from "react";
-import {
-  AnnouncementCategoryMetadata,
-  isValidAnnouncementCategory,
-} from "../../common/AnnouncementCategory";
-import Card from "../Base/BaseCard";
+import { isValidAnnouncementCategory } from "../../common/AnnouncementCategory";
 import Field from "../Field/Field";
+import AnnouncementCards from "./Cards";
+import { useListAnnouncementsSWR } from "./listAnnouncementsSWR";
 
-export default function AnnouncementsField() {
+export interface AnnouncementsFieldProps {
+  category: string;
+}
+
+export default function AnnouncementsField({
+  category,
+}: AnnouncementsFieldProps) {
+  const router = useRouter();
+  const { data } = useListAnnouncementsSWR(category);
+
   return (
     <div className="w-80">
-      <Field title="公告">
-        {Object.keys(AnnouncementCategoryMetadata).map((category: string) => {
-          if (isValidAnnouncementCategory(category)) {
-            return (
-              <Card
-                href={`/announcement/${category}`}
-                key={`${category}-announcements`}
-                flexRow
-                justifyBetween
-              >
-                {AnnouncementCategoryMetadata[category].type}
-              </Card>
-            );
-          }
-
-          console.error(
-            "Unexpected, recoverable error: a key in AnnouncementCategoryMetadata is not in AnnouncementCategory"
-          );
-          return null;
-        })}
+      <Field
+        title="公告"
+        actions={[
+          {
+            icon: faArrowRight,
+            action: () => router.push(`/announcement/${category}`),
+          },
+        ]}
+      >
+        {data && isValidAnnouncementCategory(category) ? (
+          <AnnouncementCards data={data} category={category} maxColumns={1} />
+        ) : (
+          <div>⚠️ 找不到這個分類的公告</div>
+        )}
       </Field>
     </div>
   );
