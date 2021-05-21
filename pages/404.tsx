@@ -13,9 +13,11 @@ export default function NotFoundPage() {
       </div>
       <div className="not-found-suggestion leading-relaxed">
         <p>試試看：</p>
-        <ul className="list-disc ml-9 text-blue-600">
+        <ul className="list-disc ml-9">
           <li>
-            <Link href="/">回到首頁？</Link>
+            <div className="text-blue-700">
+              <Link href="/">回到首頁？</Link>
+            </div>
           </li>
         </ul>
       </div>
