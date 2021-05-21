@@ -28,7 +28,12 @@ export default function AnnouncementsField({
         ]}
       >
         {data ? (
-          <AnnouncementCards data={data} category={category} maxColumns={1} />
+          <AnnouncementCards
+            data={data}
+            category={category}
+            maxColumns={1}
+            maxCards={3}
+          />
         ) : (
           <div>⚠️ 找不到這個分類的公告</div>
         )}

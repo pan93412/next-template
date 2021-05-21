@@ -8,18 +8,22 @@ export interface AnnouncementCardsProps {
   data: Announcement[];
   category: AnnouncementCategory;
   maxColumns: number;
+  maxCards?: number;
 }
 
 export default function AnnouncementCards({
   data,
   category,
   maxColumns,
+  maxCards,
 }: AnnouncementCardsProps) {
+  const myData = maxCards ? data.slice(0, maxCards) : data;
+
   return (
     <div
       className={`grid grid-flow-row grid-cols-${maxColumns} gap-3 auto-cols-fr`}
     >
-      {data.map(({ id, title }) => (
+      {myData.map(({ id, title }) => (
         <BaseLargeCard
           subtitle={HumanReadableCategory(category)}
           href={`/announcement/${category}/${id}`}
