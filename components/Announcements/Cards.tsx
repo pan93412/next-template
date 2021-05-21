@@ -1,5 +1,5 @@
 import React from "react";
-import { AnnouncementCategoryMetadata } from "../../common/AnnouncementCategory";
+import { HumanReadableCategory } from "../../common/AnnouncementCategory";
 import BaseLargeCard from "../Base/BaseCardV2";
 import type { Announcement } from "schweb-parser/dist/types/announcements/types";
 import type { AnnouncementCategory } from "../../common/AnnouncementCategory";
@@ -40,7 +40,7 @@ export default function AnnouncementCards({
     >
       {data.map(({ id, title }) => (
         <BaseLargeCard
-          subtitle={AnnouncementCategoryMetadata[category].type}
+          subtitle={HumanReadableCategory(category)}
           href={`/announcement/${category}/${id}`}
           key={`announcement-card-${id}`}
         >

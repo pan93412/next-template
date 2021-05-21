@@ -2,10 +2,10 @@ import React from "react";
 import { GetAnnouncement, ListAnnouncements } from "schweb-parser/dist";
 import BasePage from "../../../components/Page/BasePage";
 import { ArticlePageComponent } from "../../../components/Page/ArticlePageComponent";
-import { AnnouncementCategoryMetadata } from "../../../common/AnnouncementCategory";
 import FieldsGroup from "../../../components/Field/FieldsGroup";
 import Field from "../../../components/Field/Field";
 import AnnouncementBody from "../../../components/Announcements/AnnouncementBody";
+import { HumanReadableCategory } from "../../../common/AnnouncementCategory";
 import type { AnnouncementCategory } from "../../../common/AnnouncementCategory";
 import type { GetServerSideProps } from "next";
 import type { AnnouncementContent } from "schweb-parser/dist/types/announcements/types";
@@ -24,11 +24,11 @@ export default function AnnouncementPage({
     <BasePage id="announcement-page">
       <FieldsGroup>
         <Field
-          title={`公告 / ${AnnouncementCategoryMetadata[category].type} / ${data.title}`}
+          title={`公告 / ${HumanReadableCategory(category)} / ${data.title}`}
         >
           <ArticlePageComponent
             title={data.title}
-            subtitle={AnnouncementCategoryMetadata[category].type}
+            subtitle={HumanReadableCategory(category)}
           >
             <AnnouncementBody data={data} />
           </ArticlePageComponent>

@@ -1,7 +1,7 @@
 import React from "react";
 import { ListAnnouncements } from "schweb-parser/dist";
 import {
-  AnnouncementCategoryMetadata,
+  HumanReadableCategory,
   isValidAnnouncementCategory,
 } from "../../../common/AnnouncementCategory";
 import AnnouncementCards from "../../../components/Announcements/Cards";
@@ -22,9 +22,7 @@ export default function AnnouncementOverviewPage({ data, category }: Props) {
     <BasePage id="announcement overview">
       <div className="p-4">
         <FieldsGroup>
-          <Field
-            title={`公告 / ${AnnouncementCategoryMetadata[category].type}`}
-          >
+          <Field title={`公告 / ${HumanReadableCategory(category)}`}>
             <AnnouncementCards data={data} maxColumns={4} category={category} />
           </Field>
         </FieldsGroup>
