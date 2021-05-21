@@ -34,14 +34,14 @@ export default function Popup({ level, children }: PopupProps) {
         </div>
         <div>{children}</div>
       </div>
-      <div
-        role="button"
+      <button
+        type="button"
         onClick={() => setHide(true)}
         onKeyDown={() => setHide(true)}
         tabIndex={-10}
       >
         <FontAwesomeIcon icon={faTimes} />
-      </div>
+      </button>
     </div>
   );
 }
