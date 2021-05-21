@@ -30,7 +30,7 @@ export default function Field({ title, actions, children }: FieldProps) {
             ))}
         </div>
       </div>
-      <div className="w-full">{children}</div>
+      <div className="w-full space-y-2">{children}</div>
     </div>
   );
 }
