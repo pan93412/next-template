@@ -6,7 +6,7 @@ export default function AnnouncementRootRedirector() {
 
 export const getServerSideProps: GetServerSideProps = async () => ({
   redirect: {
-    destination: "/announcement/category/school",
+    destination: "/announcement/school",
     permanent: false,
   },
 });
