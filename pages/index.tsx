@@ -20,6 +20,10 @@ export default function Home() {
           <InfoField />
           <ArticleField />
           <AnnouncementsField category={AnnouncementCategory.School} />
+          <AnnouncementsField category={AnnouncementCategory.Study} />
+          <AnnouncementsField category={AnnouncementCategory.Contest} />
+          <AnnouncementsField category={AnnouncementCategory.Law} />
+          <AnnouncementsField category={AnnouncementCategory.Grade} />
         </FieldsGroup>
         <PopupGroup>
           <Popup level={PopupLevel.WARN}>笑死，你又沒錢贊助。</Popup>
