@@ -4,7 +4,7 @@ import Field from "../Field/Field";
 
 export default function InfoField() {
   return (
-    <div className="w-80">
+    <div className="min-w-field">
       <Field title="資訊卡">
         <Card
           subtitle="COVID-19 疫情"
