@@ -7,7 +7,7 @@ export interface FieldsGroupProps {
 
 export default function FieldsGroup({ children }: FieldsGroupProps) {
   return (
-    <div className="flex justify-between w-full overflow-scroll">
+    <div className="fields-group flex justify-between w-full overflow-scroll space-x-4">
       {children}
     </div>
   );
