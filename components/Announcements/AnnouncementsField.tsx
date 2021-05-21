@@ -1,13 +1,13 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/dist/client/router";
 import React from "react";
-import { isValidAnnouncementCategory } from "../../common/AnnouncementCategory";
 import Field from "../Field/Field";
 import AnnouncementCards from "./Cards";
 import { useListAnnouncementsSWR } from "./listAnnouncementsSWR";
+import type { AnnouncementCategory } from "../../common/AnnouncementCategory";
 
 export interface AnnouncementsFieldProps {
-  category: string;
+  category: AnnouncementCategory;
 }
 
 export default function AnnouncementsField({
@@ -27,7 +27,7 @@ export default function AnnouncementsField({
           },
         ]}
       >
-        {data && isValidAnnouncementCategory(category) ? (
+        {data ? (
           <AnnouncementCards data={data} category={category} maxColumns={1} />
         ) : (
           <div>⚠️ 找不到這個分類的公告</div>

@@ -7,6 +7,7 @@ import FieldsGroup from "../components/Field/FieldsGroup";
 import InfoField from "../components/Info/InfoField";
 import ArticleField from "../components/Page/ArticleField";
 import AnnouncementsField from "../components/Announcements/AnnouncementsField";
+import { AnnouncementCategory } from "../common/AnnouncementCategory";
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
         <FieldsGroup>
           <InfoField />
           <ArticleField />
-          <AnnouncementsField category="akmrl" />
+          <AnnouncementsField category={AnnouncementCategory.School} />
         </FieldsGroup>
         <PopupGroup>
           <Popup level={PopupLevel.WARN}>笑死，你又沒錢贊助。</Popup>
