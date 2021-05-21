@@ -26,18 +26,21 @@ export const AnnouncementCategoryMetadata: Record<
   { type: string }
 > = {
   school: {
-    type: "學校 SCHOOL",
+    type: "校園公告",
   },
   contest: {
-    type: "競賽 CONTEST",
+    type: "競賽資訊",
   },
   grade: {
-    type: "升學 GRADE",
+    type: "升學資訊",
   },
   law: {
-    type: "法規 LAW",
+    type: "法規資訊",
   },
   study: {
-    type: "研習 STUDY",
+    type: "研習資訊",
   },
 };
+
+export const HumanReadableCategory = (category: AnnouncementCategory) =>
+  AnnouncementCategoryMetadata[category].type;
