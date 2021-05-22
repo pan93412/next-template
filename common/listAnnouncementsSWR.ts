@@ -2,7 +2,7 @@ import { ListAnnouncementsMeta } from "schweb-parser/dist";
 import useSWR from "swr";
 import type { Announcement } from "schweb-parser/dist/types/announcements/types";
 
-export default async function listAnnouncementsSWR(
+export default async function ListAnnouncementsSWR(
   input: RequestInfo,
   init?: RequestInit
 ): Promise<Announcement[] | null> {
@@ -16,4 +16,4 @@ export default async function listAnnouncementsSWR(
 }
 
 export const useListAnnouncementsSWR = (category: string) =>
-  useSWR(ListAnnouncementsMeta.endpoint(category), listAnnouncementsSWR);
+  useSWR(ListAnnouncementsMeta.endpoint(category), ListAnnouncementsSWR);

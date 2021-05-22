@@ -3,8 +3,8 @@ import { useRouter } from "next/dist/client/router";
 import React from "react";
 import Field from "../Field/Field";
 import { HumanReadableCategory } from "../../common/AnnouncementCategory";
+import { useListAnnouncementsSWR } from "../../common/ListAnnouncementsSWR";
 import AnnouncementCards from "./AnnouncementCards";
-import { useListAnnouncementsSWR } from "../../common/listAnnouncementsSWR";
 import type { AnnouncementCategory } from "../../common/AnnouncementCategory";
 
 export interface AnnouncementsFieldProps {
