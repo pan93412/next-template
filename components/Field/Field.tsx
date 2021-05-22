@@ -26,6 +26,7 @@ export default function Field({ title, actions, children }: FieldProps) {
                 type="button"
                 className="w-min"
                 key={`${title}-action-${index + 1}-icon`}
+                tabIndex={0}
               >
                 <FontAwesomeIcon icon={icon} onClick={action} />
               </button>
