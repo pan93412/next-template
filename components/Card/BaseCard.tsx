@@ -31,7 +31,7 @@ export default function BaseLargeCard({
 }: CardProps) {
   return (
     <div
-      className="card rounded-lg p-6 flex flex-col justify-center space-y-1"
+      className="card rounded-lg p-6 flex flex-col justify-center space-y-1 shadow-md"
       style={{
         background,
         backgroundSize: "cover",

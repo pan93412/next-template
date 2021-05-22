@@ -16,7 +16,7 @@ export function ArticlePageComponent({
 }: ArticlePageProps) {
   return (
     <div className="flex flex-col w-full align-left items-left items-center space-y-5">
-      <div className="article w-3/5 meta bg-gray-50 p-5 rounded space-y-1">
+      <div className="article w-3/5 meta bg-gray-50 p-5 rounded space-y-1 shadow">
         {submittedDate && (
           <p className="article date">{submittedDate.toLocaleString()}</p>
         )}
