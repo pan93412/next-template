@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../Base/BaseCard";
+import Card from "../Card/BaseCard";
 import Field from "../Field/Field";
 
 export default function InfoField() {

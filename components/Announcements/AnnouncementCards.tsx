@@ -1,6 +1,6 @@
 import React from "react";
 import { HumanReadableCategory } from "../../common/AnnouncementCategory";
-import BaseLargeCard from "../Base/BaseCard";
+import BaseLargeCard from "../Card/BaseCard";
 import type { Announcement } from "schweb-parser/dist/types/announcements/types";
 import type { AnnouncementCategory } from "../../common/AnnouncementCategory";
 
