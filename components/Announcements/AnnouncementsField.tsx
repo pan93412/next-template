@@ -4,7 +4,7 @@ import React from "react";
 import Field from "../Field/Field";
 import { HumanReadableCategory } from "../../common/AnnouncementCategory";
 import AnnouncementCards from "./AnnouncementCards";
-import { useListAnnouncementsSWR } from "./listAnnouncementsSWR";
+import { useListAnnouncementsSWR } from "../../common/listAnnouncementsSWR";
 import type { AnnouncementCategory } from "../../common/AnnouncementCategory";
 
 export interface AnnouncementsFieldProps {
