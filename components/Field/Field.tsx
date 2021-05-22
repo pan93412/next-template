@@ -4,7 +4,7 @@ import type { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import type { ReactNode } from "react";
 
 export interface FieldProps {
-  title: string;
+  title: string | ReactNode;
   actions?: {
     icon: IconDefinition;
     action: () => void;
