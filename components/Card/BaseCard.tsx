@@ -1,7 +1,7 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import Link from "next/link";
+import { useRouter } from "next/dist/client/router";
 import type { ReactNode } from "react";
 
 export interface CardProps {
@@ -29,23 +29,28 @@ export default function BaseLargeCard({
   href,
   background = "#F2F2F2",
 }: CardProps) {
+  const router = useRouter();
+  const onClickRedirect = async () => {
+    if (href) await router.push(href);
+  };
+
   return (
     <div
-      className="card rounded-lg p-6 flex flex-col justify-center space-y-1 shadow-md"
+      role="link"
+      className="card cursor-pointer rounded-lg p-6 flex flex-col justify-center space-y-1 shadow-md"
       style={{
         background,
         backgroundSize: "cover",
       }}
+      onClick={onClickRedirect}
+      onKeyPress={async (key) => {
+        if (key.code === "Enter") await onClickRedirect();
+      }}
+      tabIndex={0}
     >
       {subtitle && <div className="font-light text-sm">{subtitle}</div>}
       <div className="font-bold text-lg">{children}</div>
-      {href && (
-        <button type="button" className="w-min">
-          <Link href={href}>
-            <FontAwesomeIcon icon={faArrowRight} />
-          </Link>
-        </button>
-      )}
+      {href && <FontAwesomeIcon icon={faArrowRight} />}
     </div>
   );
 }
