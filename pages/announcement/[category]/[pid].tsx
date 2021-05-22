@@ -20,12 +20,16 @@ export default function AnnouncementPage({
   data,
   category,
 }: AnnouncementPageProps) {
+  const categoryName = HumanReadableCategory(category);
+  const announcementTitle = data.title;
+
   return (
-    <BasePage id="announcement-page">
+    <BasePage
+      id="announcement-page"
+      title={`${categoryName}：${announcementTitle}`}
+    >
       <FieldsGroup>
-        <Field
-          title={`公告 / ${HumanReadableCategory(category)} / ${data.title}`}
-        >
+        <Field title={`公告 / ${categoryName} / ${announcementTitle}`}>
           <ArticlePageComponent
             title={data.title}
             subtitle={HumanReadableCategory(category)}

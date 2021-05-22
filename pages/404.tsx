@@ -4,7 +4,7 @@ import BasePage from "../components/Page/BasePage";
 
 export default function NotFoundPage() {
   return (
-    <BasePage id="not-found">
+    <BasePage id="not-found" title="404 找不到頁面">
       <div className="not-found-title">
         <div className="text-4xl font-mono font-black opacity-70 p-3 mb-4 bg-black text-white rounded w-max">
           &gt; 404

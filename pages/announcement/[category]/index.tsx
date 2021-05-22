@@ -18,10 +18,12 @@ interface Props {
 }
 
 export default function AnnouncementOverviewPage({ data, category }: Props) {
+  const categoryName = HumanReadableCategory(category);
+
   return (
-    <BasePage id="announcement overview">
+    <BasePage id="announcement overview" title={categoryName}>
       <FieldsGroup>
-        <Field title={`公告 / ${HumanReadableCategory(category)}`}>
+        <Field title={`公告 / ${categoryName}`}>
           <AnnouncementCards data={data} maxColumns={4} category={category} />
         </Field>
       </FieldsGroup>
