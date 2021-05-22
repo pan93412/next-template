@@ -8,6 +8,7 @@ import AnnouncementCards from "../../../components/Announcements/AnnouncementCar
 import BasePage from "../../../components/Page/BasePage";
 import FieldsGroup from "../../../components/Field/FieldsGroup";
 import Field from "../../../components/Field/Field";
+import { AnnouncementLink } from "../../../components/InlineLink/Links";
 import type { AnnouncementCategory } from "../../../common/AnnouncementCategory";
 import type { GetServerSideProps } from "next";
 import type { Announcement } from "schweb-parser/dist/types/announcements/types";
@@ -23,7 +24,13 @@ export default function AnnouncementOverviewPage({ data, category }: Props) {
   return (
     <BasePage id="announcement overview" title={categoryName}>
       <FieldsGroup>
-        <Field title={`公告 / ${categoryName}`}>
+        <Field
+          title={
+            <>
+              <AnnouncementLink /> / {categoryName}
+            </>
+          }
+        >
           <AnnouncementCards data={data} maxColumns={4} category={category} />
         </Field>
       </FieldsGroup>

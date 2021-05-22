@@ -6,6 +6,10 @@ import FieldsGroup from "../../../components/Field/FieldsGroup";
 import Field from "../../../components/Field/Field";
 import AnnouncementBody from "../../../components/Announcements/AnnouncementBody";
 import { HumanReadableCategory } from "../../../common/AnnouncementCategory";
+import {
+  AnnouncementCategoryLink,
+  AnnouncementLink,
+} from "../../../components/InlineLink/Links";
 import type { AnnouncementCategory } from "../../../common/AnnouncementCategory";
 import type { GetServerSideProps } from "next";
 import type { AnnouncementContent } from "schweb-parser/dist/types/announcements/types";
@@ -29,7 +33,18 @@ export default function AnnouncementPage({
       title={`${categoryName}：${announcementTitle}`}
     >
       <FieldsGroup>
-        <Field title={`公告 / ${categoryName} / ${announcementTitle}`}>
+        <Field
+          title={
+            <>
+              <AnnouncementLink /> /{" "}
+              <AnnouncementCategoryLink
+                name={categoryName}
+                category={category}
+              />{" "}
+              / {announcementTitle}
+            </>
+          }
+        >
           <ArticlePageComponent
             title={data.title}
             subtitle={HumanReadableCategory(category)}
