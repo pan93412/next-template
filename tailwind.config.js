@@ -1,8 +1,13 @@
 module.exports = {
-  purge: [
+  purge: {
+    content: [
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
-  ],
+    ],
+    options: {
+      safelist: ['grid-cols-1', 'grid-cols-4'],
+    },
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
