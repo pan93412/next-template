@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import BasePage from "../components/Page/BasePage";
+import "jetbrains-mono-webfont";
 
 export default function NotFoundPage() {
   return (

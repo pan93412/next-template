@@ -10,8 +10,6 @@ import NProgress from "nprogress";
 import type { AppProps } from "next/app";
 import "tailwindcss/tailwind.css";
 import "@fontsource/noto-sans-tc";
-import "@fontsource/noto-serif-tc";
-import "jetbrains-mono-webfont";
 import "../styles/nprogress.css";
 
 Router.events.on("routeChangeStart", () => {
