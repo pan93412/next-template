@@ -17,8 +17,12 @@ export default function Home() {
         <AnnouncementsField category={AnnouncementCategory.School} />
         <AnnouncementsField category={AnnouncementCategory.Study} />
         <AnnouncementsField category={AnnouncementCategory.Contest} />
-        <AnnouncementsField category={AnnouncementCategory.Law} />
         <AnnouncementsField category={AnnouncementCategory.Grade} />
+        <AnnouncementsField category={AnnouncementCategory.Law} />
+        <AnnouncementsField category={AnnouncementCategory.Documents} />
+        <AnnouncementsField
+          category={AnnouncementCategory.WirelessAndTimetable}
+        />
       </FieldsGroup>
       <PopupGroup>
         <Popup level={PopupLevel.INFO}>
