@@ -4,8 +4,6 @@ import BasePage from "../components/Page/BasePage";
 import PopupGroup from "../components/Popups/PopupGroup";
 import Popup, { PopupLevel } from "../components/Popups/Popup";
 import FieldsGroup from "../components/Field/FieldsGroup";
-import InfoField from "../components/Info/InfoField";
-import ArticleField from "../components/Page/ArticleField";
 import AnnouncementsField from "../components/Announcements/AnnouncementsField";
 import { AnnouncementCategory } from "../common/AnnouncementCategory";
 
@@ -17,8 +15,10 @@ export default function Home() {
       </Head>
       <BasePage id="home">
         <FieldsGroup>
-          <InfoField />
-          <ArticleField />
+          {/*
+            <InfoField />
+            <ArticleField />
+          */}
           <AnnouncementsField category={AnnouncementCategory.School} />
           <AnnouncementsField category={AnnouncementCategory.Study} />
           <AnnouncementsField category={AnnouncementCategory.Contest} />
@@ -26,8 +26,10 @@ export default function Home() {
           <AnnouncementsField category={AnnouncementCategory.Grade} />
         </FieldsGroup>
         <PopupGroup>
-          <Popup level={PopupLevel.WARN}>笑死，你又沒錢贊助。</Popup>
-          <Popup level={PopupLevel.INFO}>網站還在架設。想要支持我們嗎？</Popup>
+          <Popup level={PopupLevel.INFO}>
+            這個是 Schweb
+            概念初版。介面未來會再重做或調整。若有任何問題與建議，歡迎與我們聯絡。
+          </Popup>
         </PopupGroup>
       </BasePage>
     </>
