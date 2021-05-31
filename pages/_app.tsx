@@ -26,7 +26,21 @@ Router.events.on("routeChangeError", () => {
 
 function MyApp({ Component, pageProps }: AppProps) {
   // eslint-disable-next-line react/jsx-props-no-spreading
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Component {...pageProps} />
+      <div className="px-5 mb-2">
+        Powered by / 技術支援：
+        <a
+          className="text-blue-500"
+          href="https://vercel.com/?utm_source=smhs-dev-team&utm_campaign=oss"
+        >
+          Vercel
+        </a>
+        .
+      </div>
+    </>
+  );
 }
 
 export default MyApp;
