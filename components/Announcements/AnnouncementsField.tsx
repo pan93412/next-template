@@ -18,7 +18,7 @@ export default function AnnouncementsField({
   const { data } = useListAnnouncementsSWR(category);
 
   return (
-    <div className="min-w-field">
+    <div className="field-phone md:field-tablet xl:field-desktop">
       <Field
         title={HumanReadableCategory(category)}
         actions={[

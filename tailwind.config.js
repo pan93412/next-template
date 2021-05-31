@@ -16,14 +16,6 @@ module.exports = {
         "serif": "'Noto Serif TC', serif",
         "mono": "'JetBrains Mono', monospace",
       },
-      minWidth: {
-        "field": "17rem",
-      },
-      width: {
-        "phone": "100vw", // full-screen-width every fields
-        "tablet": "30vw", // 1/3 every fields
-        "desktop": "20vw" // 1/4 every fields
-      },
     },
   },
   variants: {
