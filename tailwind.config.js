@@ -19,7 +19,7 @@ module.exports = {
       minWidth: {
         "field": "17rem",
       },
-      maxWidth: {
+      width: {
         "phone": "100vw", // full-screen-width every fields
         "tablet": "30vw", // 1/3 every fields
         "desktop": "20vw" // 1/4 every fields
