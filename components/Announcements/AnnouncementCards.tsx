@@ -21,7 +21,7 @@ export default function AnnouncementCards({
 
   return (
     <div
-      className={`grid grid-flow-row grid-cols-${maxColumns} gap-3 auto-cols-fr`}
+      className={`grid grid-flow-row grid-cols-1 md:grid-cols-${maxColumns} gap-3 auto-cols-fr`}
     >
       {myData.map(({ id, title }) => (
         <BaseLargeCard
