@@ -9,8 +9,8 @@ export default function Navbar() {
   const router = useRouter();
 
   return (
-    <div className="px-8 py-4 grid grid-col-1 md:grid-col-3 content-center items-center">
-      <div className="col-start-1 col-end-1 hidden md:block">
+    <div className="px-8 py-4 grid grid-col-1 md:grid-col-3 content-center items-center hidden md:block">
+      <div className="col-start-1 col-end-1">
         {router.pathname !== "/" && (
           <button
             type="button"
