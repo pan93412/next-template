@@ -24,12 +24,6 @@ export default function Home() {
           category={AnnouncementCategory.WirelessAndTimetable}
         />
       </FieldsGroup>
-      <PopupGroup>
-        <Popup level={PopupLevel.INFO}>
-          這個是 Schweb
-          概念初版。介面未來會再重做或調整。若有任何問題與建議，歡迎與我們聯絡。
-        </Popup>
-      </PopupGroup>
     </BasePage>
   );
 }
