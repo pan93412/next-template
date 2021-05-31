@@ -1,7 +1,5 @@
 import React from "react";
 import BasePage from "../components/Page/BasePage";
-import PopupGroup from "../components/Popups/PopupGroup";
-import Popup, { PopupLevel } from "../components/Popups/Popup";
 import FieldsGroup from "../components/Field/FieldsGroup";
 import AnnouncementsField from "../components/Announcements/AnnouncementsField";
 import { AnnouncementCategory } from "../common/AnnouncementCategory";
