@@ -7,7 +7,7 @@ export default async function ListAnnouncementsSWR(
   init?: RequestInit
 ): Promise<Announcement[] | null> {
   const resp = await fetch(input, init);
-  if (!resp.ok) return null;
+  if (!resp.ok) return null;  aaa
 
   const json = (await resp.json()) as Promise<unknown>;
   if (!ListAnnouncementsMeta.checker(json)) return null;
