@@ -2,21 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  @variants responsive {
-    .field-phone {
-      /* 1 field per screen */
-      min-width: calc(100vw - theme("padding.8") * 2);
-    }
-
-    .field-tablet {
-      /* 3 field per screen */
-      min-width: calc(33vw);
-    }
-
-    .field-desktop {
-      /* 5 field per screen */
-      min-width: calc(20vw);
-    }
-  }
-}

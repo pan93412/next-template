@@ -3,7 +3,6 @@ import Link from "next/link";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRouter } from "next/dist/client/router";
-// import SearchBar from "./SearchBar";
 
 export default function Navbar() {
   const router = useRouter();
@@ -22,9 +21,7 @@ export default function Navbar() {
         )}
         <Link href="/">SCHWEB</Link>
       </div>
-      <div className="col-start-1 md:col-start-2 col-end-2">
-        {/* <SearchBar /> */}
-      </div>
+      <div className="col-start-1 md:col-start-2 col-end-2" />
     </div>
   );
 }

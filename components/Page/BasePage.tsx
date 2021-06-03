@@ -1,6 +1,5 @@
 import React from "react";
 import Head from "next/head";
-import Navbar from "../Navbar/Navbar";
 import type { ReactNode } from "react";
 
 export interface BasePageProps {
@@ -13,10 +12,10 @@ export default function BasePage({ title, id, children }: BasePageProps) {
   return (
     <>
       <Head>
-        <title>SCHWEB - {title}</title>
+        <title>Inficast - {title}</title>
       </Head>
       <div className={`page-${id}`}>
-        <Navbar />
+        {/* <Navbar /> */}
         <div className="p-8">{children}</div>
       </div>
     </>
