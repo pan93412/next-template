@@ -13,9 +13,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        "sans": "'Noto Sans TC', sans-serif",
-        "serif": "'Noto Serif TC', serif",
-        "mono": "'JetBrains Mono', monospace",
+        "sans": "'Fira Sans', 'Noto Sans TC', sans-serif",
+        // "serif": "'Noto Serif TC', serif",
+        // "mono": "'JetBrains Mono', monospace",
       },
     },
   },

@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@fontsource/fira-sans": "^4.4.2",
     "@fontsource/noto-sans-tc": "^4.3.0",
     "@fontsource/noto-serif-tc": "^4.3.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",

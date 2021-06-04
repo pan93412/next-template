@@ -69,6 +69,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/fira-sans@^4.4.2":
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/@fontsource/fira-sans/-/fira-sans-4.4.2.tgz#5e48dbc2ee64fa6ea133dd7172332e38204ee490"
+  integrity sha512-PlelUph4Ou+WoT7Q5CHAoWZaLTeVGTCbytKpJS0ZV0RYOb7GLMFyZ8zSKa8Rc1jutPrkkjMKucibEjlb+GsnMg==
+
 "@fontsource/noto-sans-tc@^4.3.0":
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/@fontsource/noto-sans-tc/-/noto-sans-tc-4.3.0.tgz#68037d03f4de203f6ed8246562301b12b06fe665"
