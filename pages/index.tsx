@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import LocalDB from "../components/LocalDB";
 import BasePage from "../components/Page/BasePage";
 import SessionDB from "../components/SessionDB";
@@ -69,7 +70,9 @@ export default function Home() {
                       wordBreak: "break-all",
                     }}
                   >
-                    https://channel.inficast.tk{relativeURL}
+                    <Link href={relativeURL}>
+                      <p>https://channel.inficast.tk{relativeURL}</p>
+                    </Link>
                   </div>
                 </div>
               )}
