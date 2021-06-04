@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import LocalDB from "../components/LocalDB";
-import { displayNameId } from "../components/LocalDB/consts";
 import BasePage from "../components/Page/BasePage";
 import SessionDB from "../components/SessionDB";
+import { displayNameId } from "../components/LocalDB/consts";
 import { podcastIdId } from "../components/SessionDB/consts";
 import { URLEncoder } from "../components/URLEncoder";
 
@@ -12,7 +12,7 @@ const sessionDB = SessionDB.getInstance();
 export default function Home() {
   const [podcastId, setPodcastId] = useState("");
   const [username, setUsername] = useState("");
-  const [relativeURL, setRelativeURL] = useState("");
+  const [relativeURL, setRelativeURL] = useState("/");
   const podcastInputId = `podcast-id-input`;
   const podcastLabelId = `${podcastInputId}-label`;
 
@@ -28,7 +28,7 @@ export default function Home() {
   });
 
   useEffect(() => {
-    setRelativeURL(`/${URLEncoder(username)}/${URLEncoder(podcastId)}`);
+    setRelativeURL(`/chat/${URLEncoder(username)}/${URLEncoder(podcastId)}`);
   });
 
   return (

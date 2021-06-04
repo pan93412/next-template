@@ -22,7 +22,7 @@ export default function Setup() {
 
   const onSubmit = async () => {
     if (displayName.length > 0) db.set(displayNameId, displayName);
-    await router.push("/");
+    router.back();
     return true;
   };
 
