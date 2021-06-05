@@ -6,11 +6,16 @@ import SessionDB from "../components/SessionDB";
 import { displayNameId } from "../components/LocalDB/consts";
 import { podcastIdId } from "../components/SessionDB/consts";
 import { URLEncoder } from "../components/URLEncoder";
+import type { GetServerSideProps } from "next";
 
 const localDB = LocalDB.getInstance();
 const sessionDB = SessionDB.getInstance();
 
-export default function Home() {
+export interface HomeProps {
+  hostUrl: string;
+}
+
+export default function Home({ hostUrl }: HomeProps) {
   const [podcastId, setPodcastId] = useState("");
   const [username, setUsername] = useState("");
   const [relativeURL, setRelativeURL] = useState("/");
@@ -71,7 +76,10 @@ export default function Home() {
                     }}
                   >
                     <Link href={relativeURL}>
-                      <p>https://channel.inficast.tk{relativeURL}</p>
+                      <p>
+                        {hostUrl}
+                        {relativeURL}
+                      </p>
                     </Link>
                   </div>
                 </div>
@@ -90,3 +98,9 @@ export default function Home() {
     </>
   );
 }
+
+export const getServerSideProps: GetServerSideProps<HomeProps> = async () => ({
+  props: {
+    hostUrl: process.env.HOST_URL || "https://127.0.0.1",
+  },
+});
