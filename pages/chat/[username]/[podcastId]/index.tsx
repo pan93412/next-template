@@ -44,7 +44,6 @@ export default function ChatPage({
 export const getServerSideProps: GetServerSideProps<ChatPageProps> = async (
   context
 ) => {
-  console.log(context.params);
   if (context.params) {
     const { username, podcastId } = context.params;
     const { people } = context.query;
