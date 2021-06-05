@@ -1,7 +1,7 @@
 export function URLEncoder(raw: string): string {
-  return encodeURI(raw);
+  return encodeURIComponent(raw);
 }
 
 export function URLDecoder(raw: string): string {
-  return decodeURI(raw);
+  return decodeURIComponent(raw);
 }
