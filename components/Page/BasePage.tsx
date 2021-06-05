@@ -21,9 +21,34 @@ export default function BasePage({
       <Head>
         <title>Inficast - {title}</title>
       </Head>
-      <div className={`page-${id} ${full && "w-screen h-screen"}`}>
-        <Navbar />
-        <div className={`p-8 ${full && "w-full h-full"}`}>{children}</div>
+      <div
+        className={`page-root page-${id} grid basepage-grid ${
+          full && "w-screen h-screen"
+        }`}
+      >
+        <style jsx>{`
+          .basepage-grid {
+            grid-template:
+              "navbar" min-content
+              "content" auto / 100vw;
+          }
+        `}</style>
+        <div
+          className={`page-${id}`}
+          style={{
+            gridArea: "navbar",
+          }}
+        >
+          <Navbar />
+        </div>
+        <div
+          className={`p-8 ${full && "h-full w-full"}`}
+          style={{
+            gridArea: "content",
+          }}
+        >
+          {children}
+        </div>
       </div>
     </>
   );
