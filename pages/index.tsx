@@ -69,12 +69,7 @@ export default function Home({ hostUrl }: HomeProps) {
               </div>
               {podcastId.length > 0 && (
                 <div className="podcast-join-step w-full">
-                  <div
-                    className="podcast-join-url"
-                    style={{
-                      wordBreak: "break-all",
-                    }}
-                  >
+                  <div className="podcast-join-url cursor-pointer break-all">
                     <Link href={relativeURL}>
                       <p>
                         {hostUrl}
