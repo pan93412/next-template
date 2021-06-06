@@ -26,7 +26,7 @@ export default function BasePage({
           full && "w-screen h-screen"
         }`}
       >
-        <style jsx>{`
+        <style jsx scoped>{`
           .basepage-grid {
             grid-template:
               "navbar" min-content
