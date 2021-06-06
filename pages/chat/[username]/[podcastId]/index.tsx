@@ -6,20 +6,17 @@ import type { GetServerSideProps } from "next";
 interface ChatPageProps {
   username: string;
   podcastId: string;
-  people: number;
+  // people: number;
 }
 
-export default function ChatPage({
-  username,
-  podcastId,
-  people,
-}: ChatPageProps) {
+export default function ChatPage({ username, podcastId }: ChatPageProps) {
   return (
     <BasePage title="Podcast" id="podcast-chatroom" full>
-      <div className="flex justify-between mx-32">
-        <div>
-          <p className="text-md">{username}</p>
-          <p className="text-2xl">{podcastId}</p>
+      <div className="grid items-center podcast-grid w-full h-full">
+        <div className="information-area justify-self-start">
+          @{username} - {podcastId}
+        </div>
+        <div className="quick-btn-area justify-self-end">
           <button
             type="button"
             onClick={() => router.push("/")}
@@ -28,14 +25,45 @@ export default function ChatPage({
             Leave
           </button>
         </div>
-        <div>
-          {people}
+        <div className="audiences-area-1#">Speaker here!</div>
+        <div className="audiences-area">
           <p>
             Seems like no audience here :(
             <br />
             Do you want to invite some?
           </p>
         </div>
+        <div className="control-area justify-self-center bg-gray-200">Null</div>
+        <style jsx scoped>
+          {`
+            .podcast-grid {
+              grid-template:
+                "information quick-btn" min-content
+                "speaker audiences" auto
+                "control control" min-content;
+            }
+
+            .information-area {
+              grid-area: information;
+            }
+
+            .quick-btn-area {
+              grid-area: quick-btn;
+            }
+
+            .audiences-area-1# {
+              grid-area: speaker;
+            }
+
+            .audiences-area {
+              grid-area: audiences;
+            }
+
+            .control-area {
+              grid-area: control;
+            }
+          `}
+        </style>
       </div>
     </BasePage>
   );
