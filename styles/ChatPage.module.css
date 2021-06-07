@@ -1,0 +1,28 @@
+.podcastGrid {
+  display: grid;
+  grid-template:
+    "information quick-btn" min-content
+    "audiences chat" auto
+    "control control" min-content;
+  align-items: center;
+}
+
+.informationArea {
+  grid-area: information;
+}
+
+.quickBtnArea {
+  grid-area: quick-btn;
+}
+
+.chatArea {
+  grid-area: chat;
+}
+
+.audiencesArea {
+  grid-area: audiences;
+}
+
+.controlArea {
+  grid-area: control;
+}
