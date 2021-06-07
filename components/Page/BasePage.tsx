@@ -1,6 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import Navbar from "../Navbar/Navbar";
+import styles from "../../styles/BasePage.module.css";
 import type { ReactNode } from "react";
 
 export interface BasePageProps {
@@ -22,17 +23,10 @@ export default function BasePage({
         <title>Inficast - {title}</title>
       </Head>
       <div
-        className={`page-root page-${id} grid basepage-grid ${
+        className={`page-root page-${id} grid ${styles.basepageGrid} ${
           full && "w-screen h-screen"
         }`}
       >
-        <style jsx scoped>{`
-          .basepage-grid {
-            grid-template:
-              "navbar" min-content
-              "content" auto / 100vw;
-          }
-        `}</style>
         <div
           className={`page-${id}`}
           style={{
