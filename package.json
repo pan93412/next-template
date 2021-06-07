@@ -22,6 +22,7 @@
     "next": "10.2.0",
     "nprogress": "^0.2.0",
     "postcss": "^8.2.15",
+    "random-words": "^1.1.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "schweb-parser": "git+https://github.com/smhs-os-project/schweb-parser#master",
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "@types/nprogress": "^0.2.0",
+    "@types/random-words": "^1.1.1",
     "@types/react": "^17.0.5",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
