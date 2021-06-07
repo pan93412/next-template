@@ -14,8 +14,8 @@ export default function ChatPage({ username, podcastId }: ChatPageProps) {
   return (
     <BasePage title="Podcast" id="podcast-chatroom" full>
       <div className={`grid items-center ${styles.podcastGrid} w-full h-full`}>
-        <div className={`${styles.informationArea} justify-self-start`}>
-          @{username} - {podcastId}
+        <div className={`${styles.informationArea} text-xl justify-self-start`}>
+          @{username} - <b>{podcastId}</b>
         </div>
         <div className={`${styles.quickBtnArea} justify-self-end`}>
           <button
@@ -37,7 +37,7 @@ export default function ChatPage({ username, podcastId }: ChatPageProps) {
         <div
           className={`${styles.controlArea} justify-self-center bg-gray-200`}
         >
-          Null
+          WIP: Functions
         </div>
         <style jsx scoped>
           {`
