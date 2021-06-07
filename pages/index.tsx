@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import LocalDB from "../components/LocalDB";
 import BasePage from "../components/Page/BasePage";
 import SessionDB from "../components/SessionDB";
-import { displayNameId } from "../components/LocalDB/consts";
 import { podcastIdId } from "../components/SessionDB/consts";
 import { URLEncoder } from "../components/URLEncoder";
+import GetOrGenerateUsername from "../components/DynamicContent/Username/utils";
 import type { GetServerSideProps } from "next";
 
-const localDB = LocalDB.getInstance();
 const sessionDB = SessionDB.getInstance();
 
 export interface HomeProps {
@@ -17,15 +15,9 @@ export interface HomeProps {
 
 export default function Home({ hostUrl }: HomeProps) {
   const [podcastId, setPodcastId] = useState("");
-  const [username, setUsername] = useState("");
   const [relativeURL, setRelativeURL] = useState("/");
   const podcastInputId = `podcast-id-input`;
   const podcastLabelId = `${podcastInputId}-label`;
-
-  useEffect(() => {
-    const v = localDB.get(displayNameId);
-    if (v) setUsername(v);
-  });
 
   useEffect(() => {
     if (podcastId.length === 0) {
@@ -34,7 +26,7 @@ export default function Home({ hostUrl }: HomeProps) {
   });
 
   useEffect(() => {
-    setRelativeURL(`/chat/${URLEncoder(username)}/${URLEncoder(podcastId)}`);
+    setRelativeURL(`/chat/${GetOrGenerateUsername()}/${URLEncoder(podcastId)}`);
   });
 
   return (
