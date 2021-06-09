@@ -39,36 +39,6 @@ export default function ChatPage({ username, podcastId }: ChatPageProps) {
         >
           WIP: Functions
         </div>
-        <style jsx scoped>
-          {`
-            .podcast-grid {
-              grid-template:
-                "information quick-btn" min-content
-                "speaker audiences" auto
-                "control control" min-content;
-            }
-
-            .information-area {
-              grid-area: information;
-            }
-
-            .quick-btn-area {
-              grid-area: quick-btn;
-            }
-
-            .audiences-area-1# {
-              grid-area: speaker;
-            }
-
-            .audiences-area {
-              grid-area: audiences;
-            }
-
-            .control-area {
-              grid-area: control;
-            }
-          `}
-        </style>
       </div>
     </BasePage>
   );
