@@ -878,6 +878,10 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
+circle-stream@Team-StabilityModern/circle-stream#slim:
+  version "0.0.0"
+  resolved "https://codeload.github.com/Team-StabilityModern/circle-stream/tar.gz/a7a7d6484936c6535f26b46b8a313d2459c011b7"
+
 classnames@2.2.6:
   version "2.2.6"
   resolved "https://registry.npmjs.org/classnames/-/classnames-2.2.6.tgz"
