@@ -46,5 +46,8 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.3.0",
     "typescript": "^4.2.4"
-  }
+  },
+  "bundledDependencies": [
+    "cs-sdk"
+  ]
 }
