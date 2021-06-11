@@ -1,16 +1,7 @@
 import CSBrowserSdk from "circle-stream/sdk";
 import { MessageType } from "circle-stream/sdk/dist/types/MessageArchitect";
-import { useState, useEffect, useRef } from "react";
-
-export function usePrevious<T>(value: T): T | undefined {
-  const ref = useRef<T>();
-
-  useEffect(() => {
-    ref.current = value;
-  });
-
-  return ref.current;
-}
+import { useState, useEffect } from "react";
+import usePrevious from "./usePrevious";
 
 export default function useCSSDK(
   endpoint: string,
