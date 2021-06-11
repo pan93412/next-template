@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import router from "next/router";
+import { MessageType } from "circle-stream/sdk/dist/types/MessageArchitect";
 import useCSSDK from "../../../../components/CSSDK/useCSSDK";
 import BasePage from "../../../../components/Page/BasePage";
 import styles from "../../../../styles/ChatPage.module.css";
 import GetOrGenerateUsername from "../../../../components/DynamicContent/Username/utils";
+import BaseInput from "../../../../components/BaseElements/BaseInput";
 import type { GetServerSideProps } from "next";
 
 interface ChatPageProps {
@@ -16,10 +18,33 @@ const endpoint = process.env.CS_ENDPOINT || "127.0.0.1:3001";
 
 export default function ChatPage({ username, podcastId }: ChatPageProps) {
   const [thisUsername, setThisUsername] = useState("");
+  const [messages, setMessages] = useState<JSX.Element[]>([]);
+  const [messageToSent, setMessageToSent] = useState("");
   const [sdk, onlineUsers] = useCSSDK(endpoint, podcastId, thisUsername);
 
   useEffect(() => {
     setThisUsername(GetOrGenerateUsername());
+    if (sdk?.User === thisUsername) {
+      sdk.onMessageListeners.push(({ as, data, type }) => {
+        const buildElement = (message: string) => (
+          <div
+            className="message"
+            // eslint-disable-next-line react/no-array-index-key
+            key={`message-${type}-${as}-${data}-${Date.now()}`}
+          >
+            {message}
+          </div>
+        );
+
+        switch (type) {
+          case MessageType.PLAIN:
+            setMessages([...messages, buildElement(`${as}: ${data}`)]);
+            break;
+          default:
+            break;
+        }
+      });
+    }
   });
 
   if (!sdk) return <p>正在載入 CircleStream SDK⋯⋯</p>;
@@ -46,7 +71,35 @@ export default function ChatPage({ username, podcastId }: ChatPageProps) {
             ))}
           </ul>
         </div>
-        <div className={`${styles.chatArea}`}>Speaker here!</div>
+        <div className={`${styles.chatArea}`}>
+          <form
+            onSubmit={(event) => {
+              event.preventDefault();
+
+              sdk.sendMessage({
+                type: MessageType.PLAIN,
+                data: messageToSent,
+              });
+              setMessageToSent("");
+            }}
+          >
+            <div className="messages">{messages}</div>
+            <div>
+              <BaseInput
+                id="message-sent-box"
+                label="Message to sent..."
+                value={messageToSent}
+                onChange={setMessageToSent}
+              />
+            </div>
+            <button
+              type="submit"
+              className="rounded bg-blue-50 text-black py-1 px-4 mt-2"
+            >
+              Send
+            </button>
+          </form>
+        </div>
         <div
           className={`${styles.controlArea} justify-self-center bg-gray-200`}
         >
