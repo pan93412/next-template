@@ -6,6 +6,7 @@ import BasePage from "../../../../components/Page/BasePage";
 import styles from "../../../../styles/ChatPage.module.css";
 import GetOrGenerateUsername from "../../../../components/DynamicContent/Username/utils";
 import BaseInput from "../../../../components/BaseElements/BaseInput";
+import type { ReactNode } from "react";
 import type { GetServerSideProps } from "next";
 
 interface ChatPageProps {
@@ -26,7 +27,7 @@ export default function ChatPage({ username, podcastId }: ChatPageProps) {
     setThisUsername(GetOrGenerateUsername());
     if (sdk?.User === thisUsername) {
       sdk.onMessageListeners.push(({ as, data, type }) => {
-        const buildElement = (message: string) => (
+        const buildElement = (message: string | ReactNode) => (
           <div
             className="message"
             // eslint-disable-next-line react/no-array-index-key
@@ -35,10 +36,18 @@ export default function ChatPage({ username, podcastId }: ChatPageProps) {
             {message}
           </div>
         );
+        const pushMessage = (element: JSX.Element) =>
+          setMessages([...messages, element]);
 
         switch (type) {
           case MessageType.PLAIN:
-            setMessages([...messages, buildElement(`${as}: ${data}`)]);
+            pushMessage(buildElement(`${as}: ${data}`));
+            break;
+          case MessageType.DATA_URI:
+            pushMessage(
+              // eslint-disable-next-line jsx-a11y/img-redundant-alt
+              buildElement(<img src={data} alt={`a photo from ${as}`} />)
+            );
             break;
           default:
             break;
