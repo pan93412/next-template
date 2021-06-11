@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import router from "next/router";
+import useCSSDK from "../../../../components/CSSDK/useCSSDK";
 import BasePage from "../../../../components/Page/BasePage";
 import styles from "../../../../styles/ChatPage.module.css";
+import GetOrGenerateUsername from "../../../../components/DynamicContent/Username/utils";
 import type { GetServerSideProps } from "next";
 
 interface ChatPageProps {
@@ -10,7 +12,18 @@ interface ChatPageProps {
   // people: number;
 }
 
+const endpoint = process.env.CS_ENDPOINT || "127.0.0.1:3001";
+
 export default function ChatPage({ username, podcastId }: ChatPageProps) {
+  const [thisUsername, setThisUsername] = useState("");
+  const [sdk, onlineUsers] = useCSSDK(endpoint, podcastId, thisUsername);
+
+  useEffect(() => {
+    setThisUsername(GetOrGenerateUsername());
+  });
+
+  if (!sdk) return <p>正在載入 CircleStream SDK⋯⋯</p>;
+
   return (
     <BasePage title="Podcast" id="podcast-chatroom" full>
       <div className={`grid items-center ${styles.podcastGrid} w-full h-full`}>
@@ -27,11 +40,11 @@ export default function ChatPage({ username, podcastId }: ChatPageProps) {
           </button>
         </div>
         <div className={`${styles.audiencesArea}`}>
-          <p>
-            Seems like no audience here :(
-            <br />
-            Do you want to invite some?
-          </p>
+          <ul>
+            {onlineUsers.map((user) => (
+              <li key={`online-user-${user}`}>{user}</li>
+            ))}
+          </ul>
         </div>
         <div className={`${styles.chatArea}`}>Speaker here!</div>
         <div
