@@ -19,6 +19,7 @@ export default function useCSSDK(
 ): [CSBrowserSdk | null, string[]] {
   const [sdk, setSdk] = useState<CSBrowserSdk | null>(null);
   const [onlineUsers, setOnlineUsers] = useState<string[]>([]);
+  const [initiated, setInitiated] = useState(false);
   const oldChannelName = usePrevious(channel);
   const oldUsername = usePrevious(username);
 
@@ -26,26 +27,30 @@ export default function useCSSDK(
     if (sdk && (username !== oldUsername || channel !== oldChannelName)) {
       sdk.closeConnection();
       setSdk(null);
+      setInitiated(false);
     }
 
     if (sdk) {
-      sdk.onMessageListeners.push((message) => {
-        switch (message.type) {
-          case MessageType.USER_JOIN:
-            setOnlineUsers([...onlineUsers, message.as]);
-            break;
-          case MessageType.USER_LEFT: {
-            const ou = onlineUsers.filter((v) => v !== message.as);
-            setOnlineUsers(ou);
-            break;
+      if (initiated) {
+        sdk.onMessageListeners.push((message) => {
+          switch (message.type) {
+            case MessageType.USER_JOIN:
+              setOnlineUsers([...onlineUsers, message.as]);
+              break;
+            case MessageType.USER_LEFT: {
+              const ou = onlineUsers.filter((v) => v !== message.as);
+              setOnlineUsers(ou);
+              break;
+            }
+            default:
+              break;
           }
-          default:
-            break;
-        }
-        if (message.type === MessageType.USER_JOIN) {
-          setOnlineUsers([...onlineUsers, message.as]);
-        }
-      });
+          if (message.type === MessageType.USER_JOIN) {
+            setOnlineUsers([...onlineUsers, message.as]);
+          }
+        });
+        setInitiated(true);
+      }
     } else {
       setSdk(new CSBrowserSdk(endpoint, channel, username));
     }
