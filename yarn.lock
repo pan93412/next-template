@@ -875,7 +875,7 @@ cipher-base@^1.0.0, cipher-base@^1.0.1, cipher-base@^1.0.3:
 
 circle-stream@Team-StabilityModern/circle-stream#slim:
   version "0.0.0"
-  resolved "https://codeload.github.com/Team-StabilityModern/circle-stream/tar.gz/a194b898a76d118790d910fbe269084eeaf4719f"
+  resolved "https://codeload.github.com/Team-StabilityModern/circle-stream/tar.gz/e4a28b6956bfb62c87c4e3afb5917074bc199a89"
 
 classnames@2.2.6:
   version "2.2.6"
