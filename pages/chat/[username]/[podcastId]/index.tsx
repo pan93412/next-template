@@ -21,38 +21,44 @@ export default function ChatPage({ username, podcastId }: ChatPageProps) {
   const [thisUsername, setThisUsername] = useState("");
   const [messages, setMessages] = useState<JSX.Element[]>([]);
   const [messageToSent, setMessageToSent] = useState("");
+  const [initiated, setInitiated] = useState(false);
   const [sdk, onlineUsers] = useCSSDK(endpoint, podcastId, thisUsername);
 
   useEffect(() => {
-    setThisUsername(GetOrGenerateUsername());
-    if (sdk?.User === thisUsername) {
-      sdk.onMessageListeners.push(({ as, data, type }) => {
-        const buildElement = (message: string | ReactNode) => (
-          <div
-            className="message"
-            // eslint-disable-next-line react/no-array-index-key
-            key={`message-${type}-${as}-${data}-${Date.now()}`}
-          >
-            {message}
-          </div>
-        );
-        const pushMessage = (element: JSX.Element) =>
-          setMessages([...messages, element]);
+    if (sdk && sdk?.User === thisUsername) {
+      if (!initiated) {
+        sdk.onMessageListeners.push(({ as, data, type }) => {
+          const buildElement = (message: string | ReactNode) => (
+            <div
+              className="message"
+              // eslint-disable-next-line react/no-array-index-key
+              key={`message-${type}-${as}-${data}-${Date.now()}`}
+            >
+              {message}
+            </div>
+          );
+          const pushMessage = (element: JSX.Element) =>
+            setMessages((prevMessages) => [...prevMessages, element]);
 
-        switch (type) {
-          case MessageType.PLAIN:
-            pushMessage(buildElement(`${as}: ${data}`));
-            break;
-          case MessageType.DATA_URI:
-            pushMessage(
-              // eslint-disable-next-line jsx-a11y/img-redundant-alt
-              buildElement(<img src={data} alt={`a photo from ${as}`} />)
-            );
-            break;
-          default:
-            break;
-        }
-      });
+          switch (type) {
+            case MessageType.PLAIN:
+              pushMessage(buildElement(`${as}: ${data}`));
+              break;
+            case MessageType.DATA_URI:
+              pushMessage(
+                // eslint-disable-next-line jsx-a11y/img-redundant-alt
+                buildElement(<img src={data} alt={`a photo from ${as}`} />)
+              );
+              break;
+            default:
+              break;
+          }
+        });
+        setInitiated(true);
+      }
+    } else {
+      setThisUsername(GetOrGenerateUsername());
+      setInitiated(false);
     }
   });
 
