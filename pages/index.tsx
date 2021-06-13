@@ -1,93 +1,10 @@
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
+import React from "react";
 import BasePage from "../components/Page/BasePage";
-import SessionDB from "../components/SessionDB";
-import { podcastIdId } from "../components/SessionDB/consts";
-import { URLEncoder } from "../components/URLEncoder";
-import GetOrGenerateUsername from "../components/DynamicContent/Username/utils";
-import type { GetServerSideProps } from "next";
 
-const sessionDB = SessionDB.getInstance();
-
-export interface HomeProps {
-  hostUrl: string;
-}
-
-export default function Home({ hostUrl }: HomeProps) {
-  const [podcastId, setPodcastId] = useState("");
-  const [relativeURL, setRelativeURL] = useState("/");
-  const podcastInputId = `podcast-id-input`;
-  const podcastLabelId = `${podcastInputId}-label`;
-
-  useEffect(() => {
-    if (podcastId.length === 0) {
-      setPodcastId(sessionDB.get(podcastIdId) || "");
-    }
-  });
-
-  useEffect(() => {
-    setRelativeURL(`/chat/${GetOrGenerateUsername()}/${URLEncoder(podcastId)}`);
-  });
-
+export default function Home() {
   return (
-    <>
-      <div className="bg-wrapper w-full h-full">
-        <BasePage id="home" title="首頁" full>
-          <div className="set-podcast-block flex justify-end justify-items-end content-center items-center w-full h-full">
-            <div
-              style={{
-                width: "30%",
-                marginRight: "2em",
-              }}
-            >
-              <div className="set-podcast-id">
-                <label
-                  className={podcastLabelId}
-                  htmlFor={podcastInputId}
-                  aria-label={podcastLabelId}
-                >
-                  <input
-                    id="display-name-input"
-                    type="input"
-                    className="p-2 border-b-2 border-gray-600 outline-none text-2xl w-full"
-                    placeholder="Your Podcast ID"
-                    value={podcastId}
-                    onChange={(event) => {
-                      setPodcastId(event.target.value);
-                      sessionDB.set(podcastIdId, event.target.value);
-                    }}
-                  />
-                </label>
-              </div>
-              {podcastId.length > 0 && (
-                <div className="podcast-join-step w-full">
-                  <div className="podcast-join-url cursor-pointer break-all">
-                    <Link href={relativeURL}>
-                      <p>
-                        {hostUrl}
-                        {relativeURL}
-                      </p>
-                    </Link>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        </BasePage>
-        <style jsx>{`
-          .bg-wrapper {
-            background: url("/bg.svg");
-            background-position: cover;
-            background-repeat: no-repeat;
-          }
-        `}</style>
-      </div>
-    </>
+    <BasePage id="home" title="首頁" full>
+      {/* Your Content Here */}
+    </BasePage>
   );
 }
-
-export const getServerSideProps: GetServerSideProps<HomeProps> = async () => ({
-  props: {
-    hostUrl: process.env.HOST_URL || "https://127.0.0.1",
-  },
-});

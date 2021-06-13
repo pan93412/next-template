@@ -1,1 +1,1 @@
-# Inficast v2
+# Next.js Template

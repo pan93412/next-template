@@ -1,8 +1,8 @@
 import React from "react";
 import Head from "next/head";
+import type { ReactNode } from "react";
 import Navbar from "../Navbar/Navbar";
 import styles from "../../styles/BasePage.module.css";
-import type { ReactNode } from "react";
 
 export interface BasePageProps {
   id: string;

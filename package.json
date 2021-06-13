@@ -1,5 +1,5 @@
 {
-  "name": "inficast",
+  "name": "next-template",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -17,13 +17,11 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
     "autoprefixer": "^10.2.5",
-    "circle-stream": "Team-StabilityModern/circle-stream#slim",
     "html-react-parser": "^1.2.6",
     "jetbrains-mono-webfont": "^0.1.0",
     "next": "10.2.0",
     "nprogress": "^0.2.0",
     "postcss": "^8.2.15",
-    "random-words": "^1.1.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "swr": "^0.5.6",
@@ -45,8 +43,5 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.3.0",
     "typescript": "^4.2.4"
-  },
-  "bundledDependencies": [
-    "cs-sdk"
-  ]
+  }
 }
