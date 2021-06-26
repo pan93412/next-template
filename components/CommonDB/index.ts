@@ -1,9 +1,9 @@
-const KEY_PREFIX = "inficast";
+import { PRODUCT_NAME } from "../../consts";
 
 export default class CommonDB {
   private storage: Storage | null = null;
 
-  private prefix = KEY_PREFIX;
+  private prefix = PRODUCT_NAME;
 
   protected set Storage(storage: Storage) {
     this.storage = storage;

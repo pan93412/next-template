@@ -3,6 +3,7 @@ import Head from "next/head";
 import type { ReactNode } from "react";
 import Navbar from "../Navbar/Navbar";
 import styles from "../../styles/BasePage.module.css";
+import { PRODUCT_NAME } from "../../consts";
 
 export interface BasePageProps {
   id: string;
@@ -20,7 +21,9 @@ export default function BasePage({
   return (
     <>
       <Head>
-        <title>Inficast - {title}</title>
+        <title>
+          {PRODUCT_NAME} - {title}
+        </title>
       </Head>
       <div
         className={`page-root page-${id} grid ${styles.basepageGrid} ${
