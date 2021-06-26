@@ -28,6 +28,7 @@
     "tailwindcss": "^2.1.2"
   },
   "devDependencies": {
+    "@types/gtag.js": "^0.0.6",
     "@types/nprogress": "^0.2.0",
     "@types/random-words": "^1.1.1",
     "@types/react": "^17.0.5",
@@ -42,6 +43,6 @@
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.3.0",
-    "typescript": "^4.2.4"
+    "typescript": "^4.3.4"
   }
 }
