@@ -5,7 +5,7 @@ import { ENABLE_GA } from "../consts";
 
 export const GA_TRACKING_ID = ENABLE_GA ? process.env.NEXT_PUBLIC_GA_ID : "";
 
-if (!GA_TRACKING_ID) {
+if (ENABLE_GA && !GA_TRACKING_ID) {
   throw new Error("you should specify NEXT_PUBLIC_GA_ID environment variable.");
 }
 
