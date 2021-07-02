@@ -8,9 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
-    "@fontsource/fira-sans": "^4.4.2",
     "@fontsource/noto-sans-tc": "^4.3.0",
     "@fontsource/noto-serif-tc": "^4.3.0",
+    "@fontsource/pt-sans": "^4.4.5",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
     "@fortawesome/free-brands-svg-icons": "^5.15.3",
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
@@ -18,7 +18,6 @@
     "@fortawesome/react-fontawesome": "^0.1.14",
     "@sentry/nextjs": "^6.8.0",
     "autoprefixer": "^10.2.5",
-    "html-react-parser": "^1.2.6",
     "jetbrains-mono-webfont": "^0.1.0",
     "next": "^11.0.1",
     "nprogress": "^0.2.0",
@@ -31,7 +30,6 @@
   "devDependencies": {
     "@types/gtag.js": "^0.0.6",
     "@types/nprogress": "^0.2.0",
-    "@types/random-words": "^1.1.1",
     "@types/react": "^17.0.5",
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
