@@ -6,14 +6,14 @@ import CommonDB from "../CommonDB";
  * In our practice, we prefer to separate the component with period (`.`).
  * For example:
  *
- * ```js
+ * ```
  * setup.display-name
  * ```
  *
- * Every keys gotten and set will be prefixed with "KEY_PREFIX", thus
+ * All keys gotten and set will be prefixed with "KEY_PREFIX", thus
  * the key that LocalDB will add to `localStorage` is:
  *
- * ```js
+ * ```
  * [KEY_PREFIX].setup.display-name
  * // by default, it should be `inficast.setup.display-name`
  * ```
