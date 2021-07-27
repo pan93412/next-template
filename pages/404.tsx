@@ -1,17 +1,30 @@
 import Link from "next/link";
-import React from "react";
-import BasePage from "../components/Page/BasePage";
-import "jetbrains-mono-webfont";
+import React, { useEffect } from "react";
+import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
+import { useRouter } from "next/router";
+import HeaderPageCard from "../components/Page/HeaderPageCard";
+import useQueryParam from "../components/Hooks/useQueryParam";
+import { reportExceptionMessage } from "../utilities/reportExceptionMessage";
 
 export default function NotFoundPage() {
+  const router = useRouter();
+  const { value: descriptionValue, loading: descriptionLoading } =
+    useQueryParam("description");
+
+  useEffect(() => {
+    if (!descriptionLoading)
+      reportExceptionMessage("有人嘗試進入不存在的頁面。", {
+        path: router.asPath,
+        receivedDescription: descriptionValue,
+      });
+  }, [descriptionValue, descriptionLoading]);
+
   return (
-    <BasePage id="not-found" title="404 找不到頁面">
-      <div className="not-found-title">
-        <div className="text-4xl font-mono font-black opacity-70 p-3 mb-4 bg-black text-white rounded w-max">
-          &gt; 404
-        </div>
-        <h2 className="text-2xl font-bold mb-3">找不到頁面。</h2>
-      </div>
+    <HeaderPageCard
+      title="404 找不到頁面"
+      desc={descriptionValue ?? "您請求的頁面不存在。"}
+      icon={faTimesCircle}
+    >
       <div className="not-found-suggestion leading-relaxed">
         <p>試試看：</p>
         <ul className="list-disc ml-9">
@@ -22,6 +35,6 @@ export default function NotFoundPage() {
           </li>
         </ul>
       </div>
-    </BasePage>
+    </HeaderPageCard>
   );
 }
