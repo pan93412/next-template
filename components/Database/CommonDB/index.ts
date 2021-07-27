@@ -1,4 +1,4 @@
-import { PRODUCT_NAME } from "../../consts";
+import { PRODUCT_NAME } from "../../../consts";
 
 export default class CommonDB {
   private storage: Storage | null = null;
