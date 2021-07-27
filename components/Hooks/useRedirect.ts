@@ -1,20 +1,18 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import useQueryParam from "./useQueryParam";
 
 export default function useRedirect(defaultRedirect?: string): {
   redirect: () => Promise<boolean>;
   redirectTo: string | null;
 } {
   const router = useRouter();
-  const { redirect } = router.query;
+  const { value: redirect, notSpecified } = useQueryParam("redirect");
   const [redirectTo, setRedirectTo] = useState<string | null>(null);
 
   useEffect(() => {
-    if (typeof redirect === "string") {
-      setRedirectTo(redirect);
-    } else if (defaultRedirect) {
-      setRedirectTo(defaultRedirect);
-    }
+    if (notSpecified && defaultRedirect) setRedirectTo(defaultRedirect);
+    else setRedirectTo(redirect);
   }, [redirect, defaultRedirect]);
 
   return {
@@ -22,7 +20,6 @@ export default function useRedirect(defaultRedirect?: string): {
       if (redirectTo) {
         return router.push(redirectTo);
       }
-
       return false;
     },
     redirectTo,
