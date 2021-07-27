@@ -81,11 +81,6 @@
   resolved "https://registry.yarnpkg.com/@fontsource/noto-sans-tc/-/noto-sans-tc-4.5.0.tgz#ea83a2c0851241464a9aea5facd9be7455b0f2dd"
   integrity sha512-7z8aT4aY5EJ8gggfJhUhtXL/CZQQSZ+HBuhXxiHy+NkvZG2Jz+Aa1kxrsJivzroJuK9dySYN4Pd/GENJv5WFqA==
 
-"@fontsource/noto-serif-tc@^4.5.0":
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/@fontsource/noto-serif-tc/-/noto-serif-tc-4.5.0.tgz#ecf471e314fe5ada3ed95daa454a809e1c364f07"
-  integrity sha512-OERx0+kOrdQQln6pQ6AQJW+29IT/86qlKYpq8qyLwNrh/l8al7RtBHchHmN1aIIUFQe3sG6NEvXbYg2/XeGmsg==
-
 "@fontsource/pt-sans@^4.5.0":
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/@fontsource/pt-sans/-/pt-sans-4.5.0.tgz#67805181fe212be527481c79c9867fd5f4292d20"
@@ -2261,11 +2256,6 @@ jest-worker@27.0.0-next.5:
     "@types/node" "*"
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
-
-jetbrains-mono-webfont@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/jetbrains-mono-webfont/-/jetbrains-mono-webfont-0.1.0.tgz#9e38582c21e56b6b84197bfe840931a4990da853"
-  integrity sha512-rpq7adLhd0Q8KX/ig+QDCDCVc2Mx6dbt8+PoRBXPllPBwFaxwbR/FHh6/C64GtVDaIVgcFj6bOMX9RK8fH4acg==
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
