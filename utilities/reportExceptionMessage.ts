@@ -1,25 +1,28 @@
+import type { Context } from "@sentry/types";
 import { ENABLE_SENTRY } from "../consts";
 import Sentry from "./sentry";
 
-export function reportExceptionMessage(message: string, details: string) {
+export function reportExceptionMessage(message: string, extra: Context = {}) {
   if (ENABLE_SENTRY)
     Sentry.captureMessage(message, {
       level: Sentry.Severity.Error,
       contexts: {
         details: {
-          details,
+          reportWith: "reportExceptionMessage",
+          ...extra,
         },
       },
     });
 }
 
-export function reportException(exception: Error, reason = "") {
+export function reportException(exception: Error, extra: Context = {}) {
   if (ENABLE_SENTRY)
     Sentry.captureException(exception, {
       level: Sentry.Severity.Error,
       contexts: {
         details: {
-          reason,
+          reportWith: "reportException",
+          ...extra,
         },
       },
     });
