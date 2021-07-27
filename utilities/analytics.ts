@@ -3,7 +3,7 @@
 
 import { ENABLE_GA } from "../consts";
 
-export const GA_TRACKING_ID = ENABLE_GA ? process.env.NEXT_PUBLIC_GA_ID : "";
+export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 if (ENABLE_GA && !GA_TRACKING_ID) {
   throw new Error("you should specify NEXT_PUBLIC_GA_ID environment variable.");
@@ -11,8 +11,7 @@ if (ENABLE_GA && !GA_TRACKING_ID) {
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = (url: string) => {
-  if (ENABLE_GA) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+  if (ENABLE_GA && GA_TRACKING_ID) {
     globalThis.gtag("config", GA_TRACKING_ID, {
       page_path: url,
     });
@@ -32,7 +31,6 @@ export const event = ({
   value?: number;
 }) => {
   if (ENABLE_GA) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     globalThis.gtag("event", action, {
       event_category: category,
       event_label: label,
