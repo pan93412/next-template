@@ -1,7 +1,11 @@
 import React from "react";
-import FullWidthColoredButton from "../Elements/Button/FullWidthColoredButton";
+import dynamic from "next/dynamic";
 import type { HeaderPageCardProps } from "./HeaderPageCard";
 import HeaderPageCard from "./HeaderPageCard";
+
+const FullWidthColoredButton = dynamic(
+  () => import("../Elements/Button/FullWidthColoredButton")
+);
 
 export interface ListChoicePageCardProps extends HeaderPageCardProps {
   /**
