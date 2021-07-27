@@ -1,14 +1,9 @@
 import React from "react";
-import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-
 import FullWidthColoredButton from "../Elements/Button/FullWidthColoredButton";
+import type { HeaderPageCardProps } from "./HeaderPageCard";
 import HeaderPageCard from "./HeaderPageCard";
 
-export interface ListChoicePageCardProps {
-  id: string;
-  title: string;
-  desc: string;
-  icon: IconDefinition;
+export interface ListChoicePageCardProps extends HeaderPageCardProps {
   /**
    * The choices.
    *
@@ -35,7 +30,6 @@ export interface ListChoicePageCardProps {
 }
 
 export default function ListChoicePageCard({
-  id: pid,
   title,
   desc,
   icon,
@@ -48,7 +42,6 @@ export default function ListChoicePageCard({
 
   return (
     <HeaderPageCard
-      id={pid}
       title={title}
       desc={desc}
       icon={icon}
@@ -68,7 +61,7 @@ export default function ListChoicePageCard({
           }
 
           return content.map(({ id: cid, name, redirect }) => (
-            <div key={`${pid}-${cid}`}>
+            <div key={`${title}-${cid}`}>
               <FullWidthColoredButton onClick={redirect}>
                 {name}
               </FullWidthColoredButton>
