@@ -7,7 +7,7 @@ import "@fontsource/pt-sans";
 import "../styles/global.css";
 import "../styles/nprogress.css";
 import { ENABLE_GA } from "../consts";
-import * as gtag from "../utilities/analytics";
+import * as gtag from "../utilities/Analytics/analytics";
 
 Router.events.on("routeChangeStart", () => {
   NProgress.start();

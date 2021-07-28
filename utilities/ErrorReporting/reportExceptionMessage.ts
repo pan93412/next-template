@@ -1,5 +1,5 @@
 import type { Context } from "@sentry/types";
-import { ENABLE_SENTRY } from "../consts";
+import { ENABLE_SENTRY } from "../../consts";
 import Sentry from "./sentry";
 
 export function reportExceptionMessage(message: string, extra: Context = {}) {

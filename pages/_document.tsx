@@ -1,7 +1,7 @@
 import React from "react";
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
-import { GA_TRACKING_ID } from "../utilities/analytics";
+import { GA_TRACKING_ID } from "../utilities/Analytics/analytics";
 import { ENABLE_GA } from "../consts";
 
 export default class MyDocument extends Document {

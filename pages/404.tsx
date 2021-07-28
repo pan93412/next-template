@@ -4,7 +4,7 @@ import { faTimesCircle } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/router";
 import HeaderPageCard from "../components/Page/HeaderPageCard";
 import useQueryParam from "../components/Hooks/useQueryParam";
-import { reportExceptionMessage } from "../utilities/reportExceptionMessage";
+import { reportExceptionMessage } from "../utilities/ErrorReporting/reportExceptionMessage";
 
 export default function NotFoundPage() {
   const router = useRouter();

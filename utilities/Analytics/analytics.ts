@@ -1,7 +1,7 @@
 // Mostly from https://github.com/vercel/next.js/blob/canary/examples/with-google-analytics/lib/gtag.js
 // Thanks to vercel/next.js!
 
-import { ENABLE_GA } from "../consts";
+import { ENABLE_GA } from "../../consts";
 
 export const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_ID;
 
