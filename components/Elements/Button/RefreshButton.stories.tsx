@@ -8,6 +8,9 @@ export default {
   component: RefreshButton,
 } as Meta;
 
-export const RefreshButtonExample = ({ className }: RefreshButtonProps) => (
-  <RefreshButton className={className} />
+export const RefreshButtonExample = ({
+  className,
+  children,
+}: RefreshButtonProps) => (
+  <RefreshButton className={className}>{children}</RefreshButton>
 );
