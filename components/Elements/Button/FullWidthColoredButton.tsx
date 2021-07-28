@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import type { ReactNode } from "react";
 import React from "react";
+import type { TSupportedColorList } from "../../../utilities/randcolor";
 import {
   backgroundColorConfiguration,
   randColor,
@@ -10,7 +11,7 @@ import {
 export interface FullWidthColoredButtonProps {
   onClick: () => void;
   children: ReactNode;
-  color?: string;
+  color?: TSupportedColorList;
 }
 
 export default function FullWidthColoredButton({
