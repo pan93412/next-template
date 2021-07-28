@@ -1,6 +1,12 @@
 import Rand from "./rand";
 
-export const supportedColorList = ["red", "blue", "yellow", "green", "pink"];
+export const supportedColorList = [
+  "red",
+  "blue",
+  "yellow",
+  "green",
+  "pink",
+] as const;
 
 export function randColor(): string {
   const choseColor = supportedColorList[Rand(0, supportedColorList.length - 1)];
