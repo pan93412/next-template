@@ -33,11 +33,13 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.8",
-    "@storybook/addon-actions": "^6.3.6",
-    "@storybook/addon-essentials": "^6.3.6",
-    "@storybook/addon-links": "^6.3.6",
+    "@storybook/addon-actions": "^6.4.0-alpha.21",
+    "@storybook/addon-essentials": "^6.4.0-alpha.21",
+    "@storybook/addon-links": "^6.4.0-alpha.21",
     "@storybook/addon-postcss": "^2.0.0",
-    "@storybook/react": "^6.3.6",
+    "@storybook/builder-webpack5": "^6.4.0-alpha.21",
+    "@storybook/manager-webpack5": "^6.4.0-alpha.21",
+    "@storybook/react": "^6.4.0-alpha.21",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
     "babel-loader": "^8.2.2",
@@ -50,6 +52,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "prettier": "^2.3.0"
+    "prettier": "^2.3.0",
+    "webpack": "^5.47.0"
   }
 }
