@@ -52,26 +52,20 @@ StandardExample.args = {
   children: <p>Hi!</p>,
 };
 
-export const WithContentPadding = Template.bind({});
-WithContentPadding.args = {
-  title: "Hello, World!",
-  desc: "This is a test card.",
-  children: <p>Hi!</p>,
-  contentPadding: true,
+export const WithoutContentPadding = Template.bind({});
+WithoutContentPadding.args = {
+  ...StandardExample.args,
+  contentPadding: false,
 };
 
 export const WithColoredHeader = Template.bind({});
 WithColoredHeader.args = {
-  title: "Hello, World!",
-  desc: "This is a test card.",
-  children: <p>Hi!</p>,
+  ...StandardExample.args,
   headerColor: "green-500",
 };
 
 export const WithCustomIcon = Template.bind({});
 WithCustomIcon.args = {
-  title: "Hello, World!",
-  desc: "This is a test card.",
-  children: <p>Hi!</p>,
+  ...StandardExample.args,
   icon: faHeart,
 };
