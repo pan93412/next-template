@@ -1,5 +1,7 @@
 import Rand from "./rand";
 
+// To prevent to be optimize out, please declare the full color classes
+// in the below "It will generate" or in your code. Thanks!
 export const supportedColorList = [
   "red",
   "blue",
@@ -8,7 +10,9 @@ export const supportedColorList = [
   "pink",
 ] as const;
 
-export function randColor(): string {
+export type TSupportedColorList = typeof supportedColorList[number];
+
+export function randColor(): TSupportedColorList {
   const choseColor = supportedColorList[Rand(0, supportedColorList.length - 1)];
 
   if (!choseColor)
@@ -19,8 +23,10 @@ export function randColor(): string {
   return choseColor;
 }
 
-export const backgroundColorConfiguration = (color: string, withHover = true) =>
-  `bg-${color}-50 ${withHover && `hover:bg-${color}-900`}`;
+export const backgroundColorConfiguration = (
+  color: TSupportedColorList,
+  withHover = true
+) => `bg-${color}-50 ${withHover && `hover:bg-${color}-900`}`;
 
 /**
  * Generate a random background color.
@@ -41,8 +47,10 @@ export function randBackgroundColor(withHover = true): string {
   return backgroundColorConfiguration(c, withHover);
 }
 
-export const textColorConfiguration = (color: string, withHover = true) =>
-  `text-${color}-400 ${withHover && `hover:text-${color}-900`}`;
+export const textColorConfiguration = (
+  color: TSupportedColorList,
+  withHover = true
+) => `text-${color}-400 ${withHover && `hover:text-${color}-900`}`;
 
 /**
  * Generate a random text color.
