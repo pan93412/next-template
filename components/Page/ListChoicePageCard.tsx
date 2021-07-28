@@ -7,14 +7,15 @@ const FullWidthColoredButton = dynamic(
   () => import("../Elements/Button/FullWidthColoredButton")
 );
 
-export interface ListChoicePageCardProps extends HeaderPageCardProps {
+export interface ListChoicePageCardProps
+  extends Omit<HeaderPageCardProps, "children"> {
   /**
    * The choices.
    *
    * Example:
    *
    * ```tsx
-   * <ListChoicePageCard {...props}>{
+   * <ListChoicePageCard {...props} choice={
    *  [
    *    {
    *      id: "",
@@ -22,10 +23,10 @@ export interface ListChoicePageCardProps extends HeaderPageCardProps {
    *      redirect: () => ...,
    *    }
    *  ]
-   * }</ListChoicePageCard>
+   * } />
    * ```
    */
-  children: {
+  choice: {
     id: string;
     name: string;
     redirect: () => void;
@@ -37,12 +38,12 @@ export default function ListChoicePageCard({
   title,
   desc,
   icon,
-  children: content,
+  choice,
   message,
   full,
   navbar,
 }: ListChoicePageCardProps) {
-  const noContent = content.length === 0;
+  const noContent = choice.length === 0;
   const hasMessage = !!message;
   const shouldShowMessage = hasMessage || noContent;
 
@@ -59,16 +60,16 @@ export default function ListChoicePageCard({
       <div className="flex flex-col w-full options">
         {(() => {
           // if user specified the message
-          if (message) {
+          if (hasMessage) {
             return <p>{message}</p>;
           }
 
           // if there is no any content
-          if (content.length === 0) {
+          if (noContent) {
             return <p>無資料。</p>;
           }
 
-          return content.map(({ id: cid, name, redirect }) => (
+          return choice.map(({ id: cid, name, redirect }) => (
             <div key={`${title}-${cid}`}>
               <FullWidthColoredButton onClick={redirect}>
                 {name}
