@@ -12,10 +12,12 @@ export default function HeaderPageCard({
   icon,
   headerColor,
   children,
+  full,
+  navbar,
   contentPadding = true,
 }: HeaderPageCardProps) {
   return (
-    <BasePage title={title}>
+    <BasePage title={title} full={full} navbar={navbar}>
       <div className="flex content-center justify-center">
         <HeaderCard
           title={title}

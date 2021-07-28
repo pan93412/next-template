@@ -8,9 +8,14 @@ export interface BasePageCardProps extends BasePageProps {
   children: ReactNode;
 }
 
-export default function BasePageCard({ title, children }: BasePageCardProps) {
+export default function BasePageCard({
+  title,
+  full,
+  navbar,
+  children,
+}: BasePageCardProps) {
   return (
-    <BasePage title={title}>
+    <BasePage title={title} full={full} navbar={navbar}>
       <div className="flex content-center justify-center">
         <BaseCard>{children}</BaseCard>
       </div>

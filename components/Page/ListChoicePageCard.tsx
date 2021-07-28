@@ -39,6 +39,8 @@ export default function ListChoicePageCard({
   icon,
   children: content,
   message,
+  full,
+  navbar,
 }: ListChoicePageCardProps) {
   const noContent = content.length === 0;
   const hasMessage = !!message;
@@ -49,6 +51,8 @@ export default function ListChoicePageCard({
       title={title}
       desc={desc}
       icon={icon}
+      full={full}
+      navbar={navbar}
       // we add padding if the message will show.
       contentPadding={shouldShowMessage}
     >
