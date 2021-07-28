@@ -8,11 +8,13 @@ export interface BasePageProps {
   children: ReactNode;
   full?: boolean;
   title: string;
+  navbar?: boolean;
 }
 
 export default function BasePage({
   title,
   full = false,
+  navbar = true,
   children,
 }: BasePageProps) {
   const fullScreenClass = full ? "w-screen h-screen" : "";
@@ -25,9 +27,11 @@ export default function BasePage({
           {PRODUCT_NAME} - {title}
         </title>
       </Head>
-      <section>
-        <Navbar />
-      </section>
+      {navbar && (
+        <section>
+          <Navbar />
+        </section>
+      )}
       <section className={`p-8 ${fullClass}`}>{children}</section>
     </section>
   );
